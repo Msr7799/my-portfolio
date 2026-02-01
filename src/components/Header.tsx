@@ -93,7 +93,7 @@ export default function Header() {
             onClick={toggleLanguage}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-sm font-bold hover:border-[#667eea]/50 transition-all"
+            className="w-10 h-10 p-0 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-sm font-bold hover:border-[#667eea]/50 transition-all"
           >
             {language === "en" ? "ع" : "EN"}
           </motion.button>
@@ -103,7 +103,7 @@ export default function Header() {
             onClick={toggleTheme}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center hover:border-[#667eea]/50 transition-all"
+            className="w-10 h-10 p-0 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center hover:border-[#667eea]/50 transition-all"
           >
             {theme === "dark" ? (
               <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -133,7 +133,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+            className="lg:hidden relative w-10 h-10 p-0 flex flex-col items-center justify-center gap-1.5"
           >
             <motion.span animate={{ rotate: isMobileMenuOpen ? 45 : 0, y: isMobileMenuOpen ? 6 : 0 }} className="w-6 h-0.5 bg-[var(--foreground)] rounded-full origin-center" />
             <motion.span animate={{ opacity: isMobileMenuOpen ? 0 : 1 }} className="w-6 h-0.5 bg-[var(--foreground)] rounded-full" />

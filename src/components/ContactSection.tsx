@@ -39,25 +39,25 @@ export default function ContactSection() {
     ];
 
     return (
-        <section id="contact" className="relative py-20 sm:py-28 overflow-hidden">
+        <section id="contact" className="relative py-24 sm:py-32 overflow-hidden">
             <div className="absolute inset-0 bg-grid opacity-30" />
             <div className="absolute right-0 top-0 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-gradient-to-bl from-[#667eea]/10 to-transparent blur-3xl" />
 
             <div className="container mx-auto px-6 sm:px-8" ref={ref}>
                 {/* Section Header */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
-                    <span className="inline-block px-4 py-2 rounded-full bg-[#667eea]/10 text-[#667eea] text-sm font-medium mb-4">{t("getInTouch")}</span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-20">
+                    <span className="inline-block px-6 py-2.5 rounded-full bg-[#667eea]/10 text-[#667eea] text-sm font-medium mb-6">{t("getInTouch")}</span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                         <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">{t("letsWorkTogether")}</span>
                     </h2>
                     <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto text-sm sm:text-base px-4">{t("contactDesc")}</p>
                 </motion.div>
 
-                <div className={`grid lg:grid-cols-2 gap-8 sm:gap-12 ${isRTL ? "" : ""}`}>
+                <div className={`grid lg:grid-cols-2 gap-10 sm:gap-16 ${isRTL ? "" : ""}`}>
                     {/* Left Column - Contact Info */}
-                    <motion.div initial={{ opacity: 0, x: isRTL ? 50 : -50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="space-y-6">
+                    <motion.div initial={{ opacity: 0, x: isRTL ? 50 : -50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="space-y-8">
                         {/* Contact Cards */}
-                        <div className="space-y-4">
+                        <div className="space-y-5">
                             {contactInfo.map((info, index) => (
                                 <motion.a
                                     key={info.label}
@@ -66,9 +66,9 @@ export default function ContactSection() {
                                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ delay: 0.3 + index * 0.1 }}
                                     whileHover={{ scale: 1.02, x: isRTL ? -5 : 5 }}
-                                    className={`flex items-center gap-4 p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:border-[#667eea]/50 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
+                                    className={`flex items-center gap-5 p-6 sm:p-7 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:border-[#667eea]/50 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center text-2xl">{info.icon}</div>
+                                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center text-2xl">{info.icon}</div>
                                     <div className={`${isRTL ? "text-right" : "text-left"}`}>
                                         <p className="text-[var(--foreground-subtle)] text-sm">{info.label}</p>
                                         <p className="text-[var(--foreground)] font-medium">{info.value}</p>
@@ -113,7 +113,7 @@ export default function ContactSection() {
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.1, y: -3 }}
                                     whileTap={{ scale: 0.9 }}
-                                    className="w-12 h-12 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground-muted)] hover:text-[#667eea] hover:border-[#667eea]/50 transition-all"
+                                    className="w-14 h-14 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground-muted)] hover:text-[#667eea] hover:border-[#667eea]/50 transition-all"
                                 >
                                     {social.icon}
                                 </motion.a>
@@ -127,10 +127,10 @@ export default function ContactSection() {
                         initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="p-6 sm:p-8 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl"
+                        className="p-7 sm:p-10 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl"
                     >
-                        <h3 className={`text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-6 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
-                            <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center text-xl">✉️</span>
+                        <h3 className={`text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-8 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
+                            <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center text-xl">✉️</span>
                             {t("sendMessage")}
                         </h3>
 
@@ -140,37 +140,37 @@ export default function ContactSection() {
                             </motion.div>
                         )}
 
-                        <div className="space-y-5">
+                        <div className="space-y-6">
                             <div>
-                                <label className={`block text-[var(--foreground)] font-medium mb-2 ${isRTL ? "text-right" : "text-left"}`}>{t("yourName")}</label>
+                                <label className={`block text-[var(--foreground)] font-medium mb-3 ${isRTL ? "text-right" : "text-left"}`}>{t("yourName")}</label>
                                 <input
                                     type="text"
                                     required
                                     value={formState.name}
                                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                                    className={`w-full px-5 py-3.5 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] text-[var(--foreground)] placeholder-[var(--foreground-subtle)] focus:outline-none focus:border-[#667eea] transition-all ${isRTL ? "text-right" : "text-left"}`}
+                                    className={`w-full px-6 py-4 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] text-[var(--foreground)] placeholder-[var(--foreground-subtle)] focus:outline-none focus:border-[#667eea] transition-all ${isRTL ? "text-right" : "text-left"}`}
                                     placeholder={isRTL ? "محمد الأحمد" : "John Doe"}
                                 />
                             </div>
                             <div>
-                                <label className={`block text-[var(--foreground)] font-medium mb-2 ${isRTL ? "text-right" : "text-left"}`}>{t("emailAddress")}</label>
+                                <label className={`block text-[var(--foreground)] font-medium mb-3 ${isRTL ? "text-right" : "text-left"}`}>{t("emailAddress")}</label>
                                 <input
                                     type="email"
                                     required
                                     value={formState.email}
                                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                                    className={`w-full px-5 py-3.5 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] text-[var(--foreground)] placeholder-[var(--foreground-subtle)] focus:outline-none focus:border-[#667eea] transition-all ${isRTL ? "text-right" : "text-left"}`}
+                                    className={`w-full px-6 py-4 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] text-[var(--foreground)] placeholder-[var(--foreground-subtle)] focus:outline-none focus:border-[#667eea] transition-all ${isRTL ? "text-right" : "text-left"}`}
                                     placeholder="email@example.com"
                                 />
                             </div>
                             <div>
-                                <label className={`block text-[var(--foreground)] font-medium mb-2 ${isRTL ? "text-right" : "text-left"}`}>{t("yourMessage")}</label>
+                                <label className={`block text-[var(--foreground)] font-medium mb-3 ${isRTL ? "text-right" : "text-left"}`}>{t("yourMessage")}</label>
                                 <textarea
                                     required
-                                    rows={5}
+                                    rows={6}
                                     value={formState.message}
                                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                                    className={`w-full px-5 py-3.5 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] text-[var(--foreground)] placeholder-[var(--foreground-subtle)] focus:outline-none focus:border-[#667eea] transition-all resize-none ${isRTL ? "text-right" : "text-left"}`}
+                                    className={`w-full px-6 py-4 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] text-[var(--foreground)] placeholder-[var(--foreground-subtle)] focus:outline-none focus:border-[#667eea] transition-all resize-none ${isRTL ? "text-right" : "text-left"}`}
                                     placeholder={t("messagePlaceholder")}
                                 />
                             </div>
@@ -179,7 +179,7 @@ export default function ContactSection() {
                                 disabled={isSubmitting}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white font-semibold disabled:opacity-70 hover:shadow-lg hover:shadow-[#667eea]/30 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
+                                className={`w-full flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white font-semibold disabled:opacity-70 hover:shadow-lg hover:shadow-[#667eea]/30 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
                             >
                                 {isSubmitting ? (
                                     <>

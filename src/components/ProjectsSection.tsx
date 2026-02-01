@@ -114,7 +114,7 @@ export default function ProjectsSection() {
 
             <div className="container mx-auto px-6 sm:px-8 lg:px-12" ref={ref}>
                 {/* Section Header */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-16">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-20">
                     <span className="inline-block px-5 py-2.5 rounded-full bg-[#667eea]/10 text-[#667eea] text-sm font-medium mb-5">{t("myPortfolio")}</span>
                     <h2 className="text-4xl sm:text-5xl font-bold mb-5">
                         <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">{t("featuredProjects")}</span>
@@ -123,12 +123,12 @@ export default function ProjectsSection() {
                 </motion.div>
 
                 {/* Filter Tabs */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className={`flex flex-wrap justify-center gap-3 mb-14 ${isRTL ? "flex-row-reverse" : ""}`}>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className={`flex flex-wrap justify-center gap-4 mb-16 ${isRTL ? "flex-row-reverse" : ""}`}>
                     {categories.map((category) => (
                         <button
                             key={category}
                             onClick={() => setActiveFilter(categoryMap[category] || category)}
-                            className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all ${activeFilter === (categoryMap[category] || category)
+                            className={`px-7 py-3 rounded-full font-medium text-sm transition-all ${activeFilter === (categoryMap[category] || category)
                                     ? "bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-lg shadow-[#667eea]/30"
                                     : "bg-[var(--background-glass)] text-[var(--foreground-muted)] border border-[var(--border-color)] hover:border-[#667eea]/50"
                                 }`}
@@ -139,7 +139,7 @@ export default function ProjectsSection() {
                 </motion.div>
 
                 {/* Projects Grid */}
-                <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     <AnimatePresence mode="popLayout">
                         {filteredProjects.map((project, index) => (
                             <motion.div
@@ -177,16 +177,16 @@ export default function ProjectsSection() {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-6 flex flex-col flex-grow">
-                                        <h3 className={`text-xl font-bold text-[var(--foreground)] mb-2 group-hover:text-[#667eea] transition-colors ${isRTL ? "text-right" : "text-left"}`}>
+                                    <div className="p-7 sm:p-8 flex flex-col flex-grow">
+                                        <h3 className={`text-xl font-bold text-[var(--foreground)] mb-3 group-hover:text-[#667eea] transition-colors ${isRTL ? "text-right" : "text-left"}`}>
                                             {isRTL ? project.titleAr : project.title}
                                         </h3>
-                                        <p className={`text-[var(--foreground-muted)] text-sm mb-4 line-clamp-3 flex-grow ${isRTL ? "text-right" : "text-left"}`}>
+                                        <p className={`text-[var(--foreground-muted)] text-sm mb-5 line-clamp-3 flex-grow ${isRTL ? "text-right" : "text-left"}`}>
                                             {isRTL ? project.descriptionAr : project.description}
                                         </p>
                                         <div className={`flex flex-wrap gap-2 ${isRTL ? "justify-end" : "justify-start"}`}>
                                             {project.tags.map((tag) => (
-                                                <span key={tag} className="px-3 py-1 rounded-full bg-[#667eea]/10 text-[#667eea] text-xs font-medium">{tag}</span>
+                                                <span key={tag} className="px-4 py-1.5 rounded-full bg-[#667eea]/10 text-[#667eea] text-xs font-medium">{tag}</span>
                                             ))}
                                         </div>
                                     </div>
@@ -222,7 +222,7 @@ export default function ProjectsSection() {
                             className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-[var(--background)] border border-[var(--border-color)] shadow-2xl"
                         >
                             {/* Close Button */}
-                            <button onClick={() => setSelectedProject(null)} className={`absolute top-4 ${isRTL ? "left-4" : "right-4"} z-20 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-red-500 transition-all backdrop-blur-sm`}>
+                            <button onClick={() => setSelectedProject(null)} className={`absolute top-4 ${isRTL ? "left-4" : "right-4"} z-20 w-10 h-10 p-0 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-red-500 transition-all backdrop-blur-sm`}>
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
 
