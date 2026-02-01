@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useApp } from "@/context/AppContext";
 import { IconCloud } from "@/components/ui/icon-cloud";
-import { Monitor, Shield } from "lucide-react";
+import { Medal, Shield } from "lucide-react";
 
 // Tech stack images for IconCloud
 const techImages = [
@@ -46,7 +46,7 @@ const techImages = [
     "/assets/tech/tailwindCSS.svg",
     "/assets/tech/typescript.svg",
     "/assets/tech/vercel.svg",
-    "/assets/tech/visual-studio.svg",
+    "/assets/tech/vscode.svg",
     "/assets/tech/Vite.svg",
     "/assets/tech/window.svg",
     "/assets/tech/windows11.svg",
@@ -60,6 +60,18 @@ export default function HeroSection() {
     const [currentRole, setCurrentRole] = useState(0);
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
+    const [orbitRadius, setOrbitRadius] = useState(210);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) setOrbitRadius(150);
+            else if (window.innerWidth < 1024) setOrbitRadius(220);
+            else setOrbitRadius(175);
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     useEffect(() => {
         const role = roles[currentRole];
@@ -125,7 +137,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 "
                         >
                             <span className="text-[var(--foreground)]">{t("greeting")}</span>
                             <br />
@@ -200,7 +212,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className={`flex-1 flex flex-col items-center gap-8 ${isRTL ? "lg:items-start" : "lg:items-end"}`}
+                        className={`flex-1 flex flex-col items-center mt-10 gap-8 ${isRTL ? "lg:items-start" : "lg:items-end"}`}
                     >
                         {/* Hero Image Container */}
                         <div className="relative hero-image w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[340px] md:h-[340px]">
@@ -228,19 +240,54 @@ export default function HeroSection() {
                                 />
                             </div>
 
-                            {/* Floating Labels */}
-                            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }} className={`absolute ${isRTL ? "-left-4" : "-right-4"} top-1/4 px-3 py-2 rounded-xl bg-[var(--background-glass)] backdrop-blur-xl border border-[var(--border-color)]`}>
-                                <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                    <Monitor className="w-5 h-5 text-[#667eea]" />
-                                    <span className="text-xs font-medium">{isRTL ? "مطور" : "Developer"}</span>
-                                </div>
-                            </motion.div>
+                            {/* Orbiting Tech Icons */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-0 z-20 pointer-events-none"
+                            >
+                                {[
+                                    { src: "/assets/tech/github-icon.svg", alt: "GitHub", needsWhiteBg: true },
+                                    { src: "/assets/tech/Microsoft.svg", alt: "Windows" },
+                                    { src: "/assets/tech/linux.svg", alt: "Linux", needsWhiteBg: true },
+                                    { src: "/assets/tech/openai.svg", alt: "AI", needsWhiteBg: true },
+                                    { src: "/assets/tech/Android-Studio.svg", alt: "Android Studio", needsWhiteBg: true },
+                                    { src: "/assets/tech/vscode.svg", alt: "VS Code", needsWhiteBg: true },
+                                    { src: "/assets/tech/military.svg", alt: "Military", needsWhiteBg: true }
+                                ].map((icon, index, array) => {
+                                    const angle = (index / array.length) * 2 * Math.PI;
+                                    const radius = orbitRadius;
+                                    const x = Math.cos(angle) * radius;
+                                    const y = Math.sin(angle) * radius;
 
-                            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }} className={`absolute ${isRTL ? "-right-4" : "-left-4"} bottom-1/4 px-3 py-2 rounded-xl bg-[var(--background-glass)] backdrop-blur-xl border border-[var(--border-color)]`}>
-                                <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                    <Shield className="w-5 h-5 text-[#764ba2]" />
-                                    <span className="text-xs font-medium">{isRTL ? "أمن سيبراني" : "Security"}</span>
-                                </div>
+                                    return (
+                                        <motion.div
+                                            key={index}
+                                            className="absolute"
+                                            style={{
+                                                left: `calc(50% + ${x}px)`,
+                                                top: `calc(50% + ${y}px)`,
+                                                transform: 'translate(-50%, -50%)'
+                                            }}
+                                        >
+                                            <motion.div
+                                                animate={{ rotate: -360 }}
+                                                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                                className={`p-3 rounded-full ${icon.needsWhiteBg ? 'bg-white' : 'bg-[var(--background-glass)]'} backdrop-blur-xl border border-[var(--border-color)] shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center hover:scale-125 transition-all duration-300 pointer-events-auto cursor-help w-16 h-16`}
+                                                title={icon.alt}
+                                            >
+                                                <div className="relative w-10 h-10 flex items-center justify-center">
+                                                    <Image
+                                                        src={icon.src}
+                                                        alt={icon.alt}
+                                                        fill
+                                                        className="object-contain p-1"
+                                                    />
+                                                </div>
+                                            </motion.div>
+                                        </motion.div>
+                                    );
+                                })}
                             </motion.div>
                         </div>
 

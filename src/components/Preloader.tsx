@@ -44,7 +44,7 @@ const images = [
     "/assets/tech/tailwindCSS.svg",
     "/assets/tech/typescript.svg",
     "/assets/tech/vercel.svg",
-    "/assets/tech/visual-studio.svg",
+    "/assets/tech/vscode.svg",
     "/assets/tech/Vite.svg",
     "/assets/tech/window.svg",
     "/assets/tech/windows11.svg",
@@ -84,21 +84,21 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
     if (!isVisible) {
         return (
-            <div className="fixed inset-0 z-50 bg-white transition-opacity duration-500 opacity-0 pointer-events-none">
+            <div className="fixed inset-0 z-50 bg-black/80 transition-opacity duration-500 opacity-0 pointer-events-none">
             </div>
         );
     }
 
     return (
-        <div className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center">
+        <div className="fixed inset-0 z-[100] bg-black/80 flex flex-col items-center justify-center">
             {/* IconCloud */}
-            <div className="relative flex items-center justify-center mb-8 scale-75 md:scale-100">
+            <div className="relative flex items-center mb-25 rounded-full p-2 justify-center mb-8 scale-125 md:scale-150">
                 <IconCloud images={images} />
             </div>
 
             {/* Facts Area */}
             <div className="text-center max-w-md mx-auto px-4 absolute bottom-20">
-                <p className="text-lg font-semibold text-gray-800 mb-4">Did you know?</p>
+                <p className="text-lg font-semibold text-gray-300 mb-4">Did you know?</p>
                 <div className="h-16 flex items-center justify-center">
                     <p
                         key={currentFact}

@@ -26,9 +26,8 @@ export default function SkillsSection() {
         { name: "Flutter", icon: "/assets/tech/flutter.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Flask", icon: "/assets/tech/flask.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Tailwind", icon: "/assets/tech/tailwindCSS.svg", category: "Frameworks" },
-
         { name: "Git", icon: "/assets/tech/Git.svg", category: "Tools" },
-        { name: "VS Code", icon: "/assets/tech/visual-studio.svg", category: "Tools" },
+        { name: "VS Code", icon: "/assets/tech/vscode.svg", category: "Tools" },
         { name: "Figma", icon: "/assets/tech/Figma.svg", category: "Tools" },
         { name: "Firebase", icon: "/assets/tech/firebase.svg", category: "Cloud" },
         { name: "PostgreSQL", icon: "/assets/tech/postgresql.svg", category: "Database" },
@@ -36,7 +35,6 @@ export default function SkillsSection() {
         { name: "Linux", icon: "/assets/tech/linux.svg", category: "OS", needsWhiteBg: true },
         { name: "Android", icon: "/assets/tech/android.svg", category: "OS" },
         { name: "iOS", icon: "/assets/tech/ios.svg", category: "OS", needsWhiteBg: true },
-        { name: "Windows", icon: "/assets/tech/window.svg", category: "OS", needsWhiteBg: true },
         { name: "Windows 11", icon: "/assets/tech/windows11.svg", category: "OS" },
         { name: "Google Cloud", icon: "/assets/tech/google-cloud.svg", category: "Cloud" },
         { name: "Oracle", icon: "/assets/tech/Oracle.svg", category: "Database", needsWhiteBg: true },

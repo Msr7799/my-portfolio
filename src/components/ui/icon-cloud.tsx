@@ -50,6 +50,13 @@ export function IconCloud({ icons, images }: IconCloudProps) {
         const items = icons || images || []
         imagesLoadedRef.current = new Array(items.length).fill(false)
 
+        // List of icons that need a white background for visibility on dark theme
+        const darkIcons = [
+            "github", "nextjs", "node.js", "vercel", "linux", "openai",
+            "microsoft", "oracle", "sqlite", "window", "ios", "markdown",
+            "vscode", "android-studio", "colab", "neon-db", "postman"
+        ];
+
         const newIconCanvases = items.map((item, index) => {
             const offscreen = document.createElement("canvas")
             offscreen.width = 40
@@ -58,21 +65,34 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
             if (offCtx) {
                 if (images) {
-                    // Handle image URLs directly
+                    const imagePath = items[index] as string;
+                    const needsWhiteBg = darkIcons.some(icon => imagePath.toLowerCase().includes(icon));
+
                     const img = new Image()
                     img.crossOrigin = "anonymous"
-                    img.src = items[index] as string
+                    img.src = imagePath
                     img.onload = () => {
                         offCtx.clearRect(0, 0, offscreen.width, offscreen.height)
 
+                        // Draw background if needed
+                        if (needsWhiteBg) {
+                            offCtx.beginPath()
+                            offCtx.arc(20, 20, 20, 0, Math.PI * 2)
+                            offCtx.fillStyle = "white"
+                            offCtx.fill()
+                        }
+
                         // Create circular clipping path
+                        offCtx.save()
                         offCtx.beginPath()
                         offCtx.arc(20, 20, 20, 0, Math.PI * 2)
                         offCtx.closePath()
                         offCtx.clip()
 
-                        // Draw the image
-                        offCtx.drawImage(img, 0, 0, 40, 40)
+                        // Draw the image with some padding if it has a background
+                        const padding = needsWhiteBg ? 6 : 0;
+                        offCtx.drawImage(img, padding, padding, 40 - padding * 2, 40 - padding * 2)
+                        offCtx.restore()
 
                         imagesLoadedRef.current[index] = true
                     }
