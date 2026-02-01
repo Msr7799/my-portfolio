@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useApp } from "@/context/AppContext";
+import { FileText } from "lucide-react";
 
 export default function Header() {
   const { theme, toggleTheme, language, toggleLanguage, t, isRTL } = useApp();
@@ -50,7 +51,7 @@ export default function Header() {
             <div className="relative w-10 h-10 sm:w-12 sm:h-12">
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] blur-lg opacity-50" />
               <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
-                <span className="text-lg sm:text-xl font-bold text-white">M</span>
+                <span className="text-sm sm:text-base font-bold text-white font-mono">&lt;/&gt;</span>
               </div>
             </div>
             <span className="hidden sm:block text-base sm:text-lg font-bold bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">
@@ -172,7 +173,7 @@ export default function Header() {
                 transition={{ delay: 0.5 }}
                 className="flex items-center justify-center gap-2 mt-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white font-medium"
               >
-                📄 {t("downloadCV")}
+                <FileText className="w-5 h-5" /> {t("downloadCV")}
               </motion.a>
             </div>
           </motion.div>

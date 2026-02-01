@@ -28,7 +28,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
     const [iconPositions, setIconPositions] = useState<Icon[]>([])
     const [isDragging, setIsDragging] = useState(false)
     const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 })
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+    const [mousePos, setMousePos] = useState({ x: 250, y: 150 }) // Offset from center to trigger auto-rotation
     const [targetRotation, setTargetRotation] = useState<{
         x: number
         y: number
@@ -211,6 +211,52 @@ export function IconCloud({ icons, images }: IconCloudProps) {
         setIsDragging(false)
     }
 
+    // Handle touch events for mobile
+    const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+        if (e.touches.length === 1) {
+            const touch = e.touches[0]
+            setIsDragging(true)
+            setLastMousePos({ x: touch.clientX, y: touch.clientY })
+
+            // Also update mouse position for rotation effect
+            const rect = canvasRef.current?.getBoundingClientRect()
+            if (rect) {
+                setMousePos({
+                    x: touch.clientX - rect.left,
+                    y: touch.clientY - rect.top
+                })
+            }
+        }
+    }
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+        if (e.touches.length === 1 && isDragging) {
+            const touch = e.touches[0]
+            const deltaX = touch.clientX - lastMousePos.x
+            const deltaY = touch.clientY - lastMousePos.y
+
+            rotationRef.current = {
+                x: rotationRef.current.x + deltaY * 0.004,
+                y: rotationRef.current.y + deltaX * 0.004,
+            }
+
+            setLastMousePos({ x: touch.clientX, y: touch.clientY })
+
+            // Update mouse position for the rotation effect
+            const rect = canvasRef.current?.getBoundingClientRect()
+            if (rect) {
+                setMousePos({
+                    x: touch.clientX - rect.left,
+                    y: touch.clientY - rect.top
+                })
+            }
+        }
+    }
+
+    const handleTouchEnd = () => {
+        setIsDragging(false)
+    }
+
     // Animation and rendering
     useEffect(() => {
         const canvas = canvasRef.current
@@ -246,6 +292,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
                     setTargetRotation(null)
                 }
             } else if (!isDragging) {
+                // Auto-rotate based on mouse position (original behavior)
                 rotationRef.current = {
                     x: rotationRef.current.x + (dy / canvas.height) * speed,
                     y: rotationRef.current.y + (dx / canvas.width) * speed,
@@ -314,7 +361,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className="rounded-lg touch-none w-full h-full"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="rounded-lg touch-none w-full h-full cursor-grab active:cursor-grabbing"
             aria-label="Interactive 3D Icon Cloud"
             role="img"
         />

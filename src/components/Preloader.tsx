@@ -7,7 +7,7 @@ interface PreloaderProps {
 }
 
 const images = [
-    "/assets/tech/android-log.svg",
+    "/assets/tech/android.svg",
     "/assets/tech/bootstrap.svg",
     "/assets/tech/cloudinary.png",
     "/assets/tech/colab.svg",
@@ -29,11 +29,11 @@ const images = [
     "/assets/tech/javascript.svg",
     "/assets/tech/linux.svg",
     "/assets/tech/Markdown.svg",
+    "/assets/tech/Microsoft.svg",
     "/assets/tech/MongoDB.svg",
     "/assets/tech/neon-DB.svg",
     "/assets/tech/Nextjs.svg",
     "/assets/tech/node.js.svg",
-    "/assets/tech/openrouter.svg",
     "/assets/tech/Oracle.svg",
     "/assets/tech/postgresql.svg",
     "/assets/tech/postman.svg",
@@ -47,7 +47,9 @@ const images = [
     "/assets/tech/visual-studio.svg",
     "/assets/tech/Vite.svg",
     "/assets/tech/window.svg",
-    "/assets/tech/windows11.svg"
+    "/assets/tech/windows11.svg",
+    "/assets/tech/kotlin.svg",
+    "/assets/tech/gradle.svg",
 ];
 
 const facts = [

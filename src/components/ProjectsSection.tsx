@@ -109,10 +109,10 @@ export default function ProjectsSection() {
 
     return (
         <section id="projects" className="relative py-16 sm:py-20 overflow-hidden">
-            <div className="absolute inset-0 bg-grid opacity-30" />
-            <div className="absolute left-0 bottom-0 w-80 sm:w-[600px] h-80 sm:h-[600px] bg-gradient-to-tr from-[#667eea]/10 to-transparent blur-3xl" />
+            <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+            <div className="absolute left-0 bottom-0 w-80 sm:w-[600px] h-80 sm:h-[600px] bg-gradient-to-tr from-[#667eea]/10 to-transparent blur-3xl pointer-events-none" />
 
-            <div className="container mx-auto px-6 sm:px-8 lg:px-12" ref={ref}>
+            <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10" ref={ref}>
                 {/* Section Header */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-10">
                     <span className="inline-block px-4 py-2 rounded-full bg-[#667eea]/10 text-[#667eea] text-xs font-medium mb-3">{t("myPortfolio")}</span>

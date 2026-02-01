@@ -4,7 +4,56 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useApp } from "@/context/AppContext";
+import { IconCloud } from "@/components/ui/icon-cloud";
+import { Monitor, Shield } from "lucide-react";
 
+// Tech stack images for IconCloud
+const techImages = [
+    "/assets/tech/android.svg",
+    "/assets/tech/bootstrap.svg",
+    "/assets/tech/cloudinary.png",
+    "/assets/tech/colab.svg",
+    "/assets/tech/css.svg",
+    "/assets/tech/Dart.svg",
+    "/assets/tech/dj.svg",
+    "/assets/tech/docker.svg",
+    "/assets/tech/Figma.svg",
+    "/assets/tech/firebase.svg",
+    "/assets/tech/flask.svg",
+    "/assets/tech/flutter.svg",
+    "/assets/tech/Git.svg",
+    "/assets/tech/github.svg",
+    "/assets/tech/Godot-Engine.svg",
+    "/assets/tech/google-cloud.svg",
+    "/assets/tech/google-play.svg",
+    "/assets/tech/html.png",
+    "/assets/tech/ios.svg",
+    "/assets/tech/javascript.svg",
+    "/assets/tech/linux.svg",
+    "/assets/tech/Markdown.svg",
+    "/assets/tech/Microsoft.svg",
+    "/assets/tech/MongoDB.svg",
+    "/assets/tech/neon-DB.svg",
+    "/assets/tech/Nextjs.svg",
+    "/assets/tech/node.js.svg",
+    "/assets/tech/Oracle.svg",
+    "/assets/tech/postgresql.svg",
+    "/assets/tech/postman.svg",
+    "/assets/tech/Powershell.svg",
+    "/assets/tech/python.svg",
+    "/assets/tech/react.svg",
+    "/assets/tech/SQLite.svg",
+    "/assets/tech/tailwindCSS.svg",
+    "/assets/tech/typescript.svg",
+    "/assets/tech/vercel.svg",
+    "/assets/tech/visual-studio.svg",
+    "/assets/tech/Vite.svg",
+    "/assets/tech/window.svg",
+    "/assets/tech/windows11.svg",
+    "/assets/tech/kotlin.svg",
+    "/assets/tech/gradle.svg",
+
+];
 export default function HeroSection() {
     const { t, isRTL, language } = useApp();
     const roles = [t("role1"), t("role2"), t("role3"), t("role4")];
@@ -42,14 +91,14 @@ export default function HeroSection() {
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-grid opacity-50" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[600px] bg-gradient-to-br from-[#667eea]/20 via-[#764ba2]/10 to-transparent blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-to-tl from-[#00d9ff]/10 to-transparent blur-3xl" />
+            <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[600px] bg-gradient-to-br from-[#667eea]/20 via-[#764ba2]/10 to-transparent blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-to-tl from-[#00d9ff]/10 to-transparent blur-3xl pointer-events-none" />
 
             {/* Floating Orbs */}
-            <motion.div animate={{ y: [0, -30, 0], x: [0, 15, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#667eea] blur-sm" />
-            <motion.div animate={{ y: [0, 20, 0], x: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#764ba2] blur-sm" />
-            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#00d9ff] blur-sm" />
+            <motion.div animate={{ y: [0, -30, 0], x: [0, 15, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#667eea] blur-sm pointer-events-none" />
+            <motion.div animate={{ y: [0, 20, 0], x: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#764ba2] blur-sm pointer-events-none" />
+            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#00d9ff] blur-sm pointer-events-none" />
 
             <div className="container mx-auto px-6 sm:px-8 lg:px-12">
                 <div className={`flex flex-col ${isRTL ? "lg:flex-row-reverse" : "lg:flex-row"} items-center justify-between gap-12 lg:gap-16`}>
@@ -146,14 +195,15 @@ export default function HeroSection() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Hero Image */}
+                    {/* Hero Image + IconCloud Column */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className={`flex-1 flex justify-center ${isRTL ? "lg:justify-start" : "lg:justify-end"}`}
+                        className={`flex-1 flex flex-col items-center gap-8 ${isRTL ? "lg:items-start" : "lg:items-end"}`}
                     >
-                        <div className="relative hero-image" style={{ width: "340px", height: "340px" }}>
+                        {/* Hero Image Container */}
+                        <div className="relative hero-image w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[340px] md:h-[340px]">
                             {/* Glow Effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-full blur-3xl opacity-30 scale-110" />
 
@@ -178,21 +228,31 @@ export default function HeroSection() {
                                 />
                             </div>
 
-                            {/* Floating Labels - p-3 داخل كل label */}
-                            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }} className={`absolute ${isRTL ? "-left-6" : "-right-6"} top-1/4 px-4 py-3 rounded-xl bg-[var(--background-glass)] backdrop-blur-xl border border-[var(--border-color)]`}>
+                            {/* Floating Labels */}
+                            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }} className={`absolute ${isRTL ? "-left-4" : "-right-4"} top-1/4 px-3 py-2 rounded-xl bg-[var(--background-glass)] backdrop-blur-xl border border-[var(--border-color)]`}>
                                 <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                    <span className="text-xl">💻</span>
-                                    <span className="text-sm font-medium">{isRTL ? "مطور" : "Developer"}</span>
+                                    <Monitor className="w-5 h-5 text-[#667eea]" />
+                                    <span className="text-xs font-medium">{isRTL ? "مطور" : "Developer"}</span>
                                 </div>
                             </motion.div>
 
-                            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }} className={`absolute ${isRTL ? "-right-6" : "-left-6"} bottom-1/4 px-4 py-3 rounded-xl bg-[var(--background-glass)] backdrop-blur-xl border border-[var(--border-color)]`}>
+                            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }} className={`absolute ${isRTL ? "-right-4" : "-left-4"} bottom-1/4 px-3 py-2 rounded-xl bg-[var(--background-glass)] backdrop-blur-xl border border-[var(--border-color)]`}>
                                 <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                    <span className="text-xl">🛡️</span>
-                                    <span className="text-sm font-medium">{isRTL ? "أمن سيبراني" : "Security"}</span>
+                                    <Shield className="w-5 h-5 text-[#764ba2]" />
+                                    <span className="text-xs font-medium">{isRTL ? "أمن سيبراني" : "Security"}</span>
                                 </div>
                             </motion.div>
                         </div>
+
+                        {/* IconCloud - Tech Stack DIRECTLY beneath hero image */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                            className="w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] md:w-[420px] md:h-[420px] relative z-10"
+                        >
+                            <IconCloud images={techImages} />
+                        </motion.div>
                     </motion.div>
                 </div>
 
