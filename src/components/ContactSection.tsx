@@ -28,8 +28,8 @@ export default function ContactSection() {
 
     const contactInfo = [
         { icon: <IoMailOutline className="w-5 h-5" />, label: t("email"), value: "ALROMAIHI2224@GMAIL.COM", link: "mailto:ALROMAIHI2224@GMAIL.COM" },
-        { icon: <IoCallOutline className="w-5 h-5" />, label: t("phone"), value: "+973 37925259", link: "tel:+97337925259"},
-        { icon: <FaWhatsapp className="w-5 h-5" />, label: t("Whatsapp"), value: "+973 37925259", link: "https://wa.me/97337925259"},
+        { icon: <IoCallOutline className="w-5 h-5" />, label: t("phone"), value: "+973 37925259", link: "tel:+97337925259" },
+        { icon: <FaWhatsapp className="w-5 h-5" />, label: t("Whatsapp"), value: "+973 37925259", link: "https://wa.me/97337925259" },
         { icon: <IoLocationOutline className="w-5 h-5" />, label: t("location"), value: isRTL ? "البحرين 🇧🇭" : "Bahrain 🇧🇭", link: "#" },
     ];
 
