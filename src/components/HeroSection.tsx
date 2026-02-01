@@ -170,7 +170,7 @@ export default function HeroSection() {
                             {/* Image Container */}
                             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[var(--border-color)]">
                                 <Image
-                                    src="/assets/My-pics/rounded-my-pic.svg"
+                                    src="/assets/My-pics/my-pic-rounded.png"
                                     alt="Mohamed Alromaihi"
                                     fill
                                     className="object-cover object-top"
