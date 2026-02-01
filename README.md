@@ -1,7 +1,7 @@
 # Portfolio Website - Mohamed Alromaihi
 
 <div align="center">
-  <img src="./public/assets/portfolio-preview.png" alt="Portfolio Preview" width="100%"/>
+  <img src="./public/assets/portfolio.png" alt="Portfolio Preview" width="100%"/>
 </div>
 
 <div align="center">
