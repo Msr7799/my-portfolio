@@ -20,9 +20,9 @@ export default function SkillsSection() {
         { name: "Next.js", icon: "/assets/tech/Nextjs.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Node.js", icon: "/assets/tech/node.js.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Python", icon: "/assets/tech/python.svg", category: "Languages" },
-       { name: "Kotlin", icon: "/assets/tech/kotlin.svg", category: "Languages" },
-       { name: "Dart", icon: "/assets/tech/Dart.svg", category: "Languages" },
-       { name: "Gradle", icon: "/assets/tech/gradle.svg", category: "Tools"},
+        { name: "Kotlin", icon: "/assets/tech/Kotlin.svg", category: "Languages" },
+        { name: "Dart", icon: "/assets/tech/Dart.svg", category: "Languages" },
+        { name: "Gradle", icon: "/assets/tech/Gradle.svg", category: "Tools" },
         { name: "Flutter", icon: "/assets/tech/flutter.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Flask", icon: "/assets/tech/flask.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Tailwind", icon: "/assets/tech/tailwindCSS.svg", category: "Frameworks" },
@@ -48,7 +48,7 @@ export default function SkillsSection() {
         { name: "Vercel", icon: "/assets/tech/vercel.svg", category: "Tools", needsWhiteBg: true },
         { name: "Vite", icon: "/assets/tech/Vite.svg", category: "Tools" },
         { name: "Godot Engine", icon: "/assets/tech/Godot-Engine.svg", category: "Tools", needsWhiteBg: true },
-        { name: "Github", icon: "/assets/tech/github.svg", category: "Tools"},
+        { name: "Github", icon: "/assets/tech/github.svg", category: "Tools" },
     ];
 
     const technicalSkills = [

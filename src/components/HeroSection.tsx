@@ -50,8 +50,8 @@ const techImages = [
     "/assets/tech/Vite.svg",
     "/assets/tech/window.svg",
     "/assets/tech/windows11.svg",
-    "/assets/tech/kotlin.svg",
-    "/assets/tech/gradle.svg",
+    "/assets/tech/Kotlin.svg",
+    "/assets/tech/Gradle.svg",
 
 ];
 export default function HeroSection() {
@@ -220,7 +220,7 @@ export default function HeroSection() {
                             {/* Image Container */}
                             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[var(--border-color)]">
                                 <Image
-                                    src="/assets/My-pics/my-pic-rounded.png"
+                                    src="/assets/My-pics/My-pic-rounded.png"
                                     alt="Mohamed Alromaihi"
                                     fill
                                     className="object-cover object-top"
