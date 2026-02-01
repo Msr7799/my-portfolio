@@ -61,11 +61,7 @@
 }
 
 /* ===== Base Styles ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 
 /* Base UI rhythm (kept low-specificity; utilities can override) */
 @layer base {
