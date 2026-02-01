@@ -4,56 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useApp } from "@/context/AppContext";
-import { IconCloud } from "@/components/ui/icon-cloud";
 import { Medal, Shield } from "lucide-react";
 
-// Tech stack images for IconCloud
-const techImages = [
-    "/assets/tech/android.svg",
-    "/assets/tech/bootstrap.svg",
-    "/assets/tech/cloudinary.png",
-    "/assets/tech/colab.svg",
-    "/assets/tech/css.svg",
-    "/assets/tech/Dart.svg",
-    "/assets/tech/dj.svg",
-    "/assets/tech/docker.svg",
-    "/assets/tech/Figma.svg",
-    "/assets/tech/firebase.svg",
-    "/assets/tech/flask.svg",
-    "/assets/tech/flutter.svg",
-    "/assets/tech/Git.svg",
-    "/assets/tech/github.svg",
-    "/assets/tech/Godot-Engine.svg",
-    "/assets/tech/google-cloud.svg",
-    "/assets/tech/google-play.svg",
-    "/assets/tech/html.png",
-    "/assets/tech/ios.svg",
-    "/assets/tech/javascript.svg",
-    "/assets/tech/linux.svg",
-    "/assets/tech/Markdown.svg",
-    "/assets/tech/Microsoft.svg",
-    "/assets/tech/MongoDB.svg",
-    "/assets/tech/neon-DB.svg",
-    "/assets/tech/Nextjs.svg",
-    "/assets/tech/node.js.svg",
-    "/assets/tech/Oracle.svg",
-    "/assets/tech/postgresql.svg",
-    "/assets/tech/postman.svg",
-    "/assets/tech/Powershell.svg",
-    "/assets/tech/python.svg",
-    "/assets/tech/react.svg",
-    "/assets/tech/SQLite.svg",
-    "/assets/tech/tailwindCSS.svg",
-    "/assets/tech/typescript.svg",
-    "/assets/tech/vercel.svg",
-    "/assets/tech/vscode.svg",
-    "/assets/tech/Vite.svg",
-    "/assets/tech/window.svg",
-    "/assets/tech/windows11.svg",
-    "/assets/tech/Kotlin.svg",
-    "/assets/tech/Gradle.svg",
-
-];
 export default function HeroSection() {
     const { t, isRTL, language } = useApp();
     const roles = [t("role1"), t("role2"), t("role3"), t("role4")];
@@ -290,16 +242,6 @@ export default function HeroSection() {
                                 })}
                             </motion.div>
                         </div>
-
-                        {/* IconCloud - Tech Stack DIRECTLY beneath hero image */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                            className="w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] md:w-[420px] md:h-[420px] relative z-10"
-                        >
-                            <IconCloud images={techImages} />
-                        </motion.div>
                     </motion.div>
                 </div>
 

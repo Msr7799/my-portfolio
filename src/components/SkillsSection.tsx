@@ -5,6 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useApp } from "@/context/AppContext";
 import { ClipboardList, MessageCircle, Palette, Briefcase, Handshake, Puzzle, BookOpen, Zap, Settings, Target, Rocket } from "lucide-react";
+import { IconCloud } from "@/components/ui/icon-cloud";
 
 export default function SkillsSection() {
     const { t, isRTL } = useApp();
@@ -87,25 +88,40 @@ export default function SkillsSection() {
                     <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto text-sm sm:text-base">{t("techStackDesc")}</p>
                 </motion.div>
 
-                {/* Technologies Grid */}
-                <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className="mb-10">
-                    <div className="tech-grid grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 gap-3">
-                        {technologies.map((tech) => (
-                            <motion.div
-                                key={tech.name}
-                                variants={itemVariants}
-                                whileHover={{ scale: 1.1, y: -5 }}
-                                className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-sm hover:border-[#667eea]/50 hover:bg-[var(--background-card)] transition-all duration-300 cursor-pointer"
-                            >
-                                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer" />
-                                <div className={`relative w-12 h-12 flex items-center justify-center ${tech.needsWhiteBg ? 'bg-white rounded-xl p-1.5' : ''}`}>
-                                    <Image src={tech.icon} alt={tech.name} width={40} height={40} className="object-contain" />
-                                </div>
-                                <span className="text-[10px] sm:text-xs text-[var(--foreground-muted)] group-hover:text-[var(--foreground)] transition-colors text-center">{tech.name}</span>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                {/* IconCloud + Technologies Grid */}
+                <div className="flex flex-col lg:flex-row items-center gap-8 mb-10">
+                    {/* IconCloud */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.8 }}
+                        className="w-full lg:w-1/3 flex justify-center"
+                    >
+                        <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] relative">
+                            <IconCloud images={technologies.map(t => t.icon)} />
+                        </div>
+                    </motion.div>
+
+                    {/* Technologies Grid */}
+                    <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className="w-full lg:w-2/3">
+                        <div className="tech-grid grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 gap-3">
+                            {technologies.map((tech) => (
+                                <motion.div
+                                    key={tech.name}
+                                    variants={itemVariants}
+                                    whileHover={{ scale: 1.1, y: -5 }}
+                                    className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-sm hover:border-[#667eea]/50 hover:bg-[var(--background-card)] transition-all duration-300 cursor-pointer"
+                                >
+                                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer" />
+                                    <div className={`relative w-12 h-12 flex items-center justify-center ${tech.needsWhiteBg ? 'bg-white rounded-xl p-1.5' : ''}`}>
+                                        <Image src={tech.icon} alt={tech.name} width={40} height={40} className="object-contain" />
+                                    </div>
+                                    <span className="text-[10px] sm:text-xs text-[var(--foreground-muted)] group-hover:text-[var(--foreground)] transition-colors text-center">{tech.name}</span>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
 
                 {/* Skills Grid */}
                 <div className={`grid lg:grid-cols-2 gap-8`}>
