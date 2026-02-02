@@ -3,10 +3,37 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useApp } from "@/context/AppContext";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
     const { t, isRTL, language } = useApp();
     const currentYear = new Date().getFullYear();
+    const [visitorCount, setVisitorCount] = useState<number | null>(null);
+
+    useEffect(() => {
+        // Simple visitor counter using localStorage
+        // In production, you would use a backend API or service like CountAPI
+        const incrementVisitor = () => {
+            const storageKey = "portfolio_visitor_count";
+            const lastVisitKey = "portfolio_last_visit";
+            const lastVisit = localStorage.getItem(lastVisitKey);
+            const now = Date.now();
+
+            // Only count as new visit if more than 1 hour since last visit
+            const oneHour = 60 * 60 * 1000;
+            let count = parseInt(localStorage.getItem(storageKey) || "0", 10);
+
+            if (!lastVisit || (now - parseInt(lastVisit, 10)) > oneHour) {
+                count += 1;
+                localStorage.setItem(storageKey, count.toString());
+                localStorage.setItem(lastVisitKey, now.toString());
+            }
+
+            setVisitorCount(count);
+        };
+
+        incrementVisitor();
+    }, []);
 
     const navItems = [
         { name: t("home"), href: "#home" },
@@ -60,8 +87,23 @@ export default function Footer() {
                     <p className="text-[var(--foreground-subtle)] text-[10px] sm:text-xs mt-2 opacity-70">
                         {t("builtWith")}
                     </p>
+
+                    {/* Hidden Visitor Counter - disguised as a subtle design element */}
+                    {visitorCount !== null && (
+                        <div
+                            className="mt-4 inline-flex items-center gap-1.5 opacity-30 hover:opacity-50 transition-opacity cursor-default select-none"
+                            title=""
+                        >
+                            <span className="w-2 h-2 rounded-full bg-[var(--foreground-subtle)]" />
+                            <span className="text-[10px] text-[var(--foreground-subtle)] font-mono tracking-widest">
+                                {visitorCount.toString().padStart(6, '0')}
+                            </span>
+                            <span className="w-2 h-2 rounded-full bg-[var(--foreground-subtle)]" />
+                        </div>
+                    )}
                 </div>
             </div>
         </footer>
     );
 }
+

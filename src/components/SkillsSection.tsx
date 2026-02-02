@@ -20,13 +20,13 @@ export default function SkillsSection() {
         { name: "React", icon: "/assets/tech/react.svg", category: "Frameworks" },
         { name: "Next.js", icon: "/assets/tech/Nextjs.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Node.js", icon: "/assets/tech/node.js.svg", category: "Frameworks", needsWhiteBg: true },
-        { name: "Python", icon: "/assets/tech/python.svg", category: "Languages" },
+        { name: "Python", icon: "/assets/tech/python.svg", category: "Languages", needsWhiteBg: true },
         { name: "Kotlin", icon: "/assets/tech/Kotlin.svg", category: "Languages" },
         { name: "Dart", icon: "/assets/tech/Dart.svg", category: "Languages" },
         { name: "Gradle", icon: "/assets/tech/Gradle.svg", category: "Tools" },
         { name: "Flutter", icon: "/assets/tech/flutter.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Flask", icon: "/assets/tech/flask.svg", category: "Frameworks", needsWhiteBg: true },
-        { name: "Tailwind", icon: "/assets/tech/tailwindCSS.svg", category: "Frameworks" },
+        { name: "Tailwind", icon: "/assets/tech/tailwindCSS.png", category: "Frameworks" },
         { name: "Git", icon: "/assets/tech/Git.svg", category: "Tools" },
         { name: "VS Code", icon: "/assets/tech/vscode.svg", category: "Tools" },
         { name: "Figma", icon: "/assets/tech/Figma.svg", category: "Tools" },
@@ -36,7 +36,6 @@ export default function SkillsSection() {
         { name: "Linux", icon: "/assets/tech/linux.svg", category: "OS", needsWhiteBg: true },
         { name: "Android", icon: "/assets/tech/android.svg", category: "OS" },
         { name: "iOS", icon: "/assets/tech/ios.svg", category: "OS", needsWhiteBg: true },
-        { name: "Windows 11", icon: "/assets/tech/windows11.svg", category: "OS" },
         { name: "Google Cloud", icon: "/assets/tech/google-cloud.svg", category: "Cloud" },
         { name: "Oracle", icon: "/assets/tech/Oracle.svg", category: "Database", needsWhiteBg: true },
         { name: "SQLite", icon: "/assets/tech/SQLite.svg", category: "Database", needsWhiteBg: true },
@@ -47,7 +46,7 @@ export default function SkillsSection() {
         { name: "Vercel", icon: "/assets/tech/vercel.svg", category: "Tools", needsWhiteBg: true },
         { name: "Vite", icon: "/assets/tech/Vite.svg", category: "Tools" },
         { name: "Godot Engine", icon: "/assets/tech/Godot-Engine.svg", category: "Tools", needsWhiteBg: true },
-        { name: "Github", icon: "/assets/tech/github.svg", category: "Tools" },
+        { name: "Github", icon: "/assets/tech/github.svg", category: "Tools", needsWhiteBg: true },
     ];
 
     const technicalSkills = [

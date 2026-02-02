@@ -557,3 +557,132 @@ textarea {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ===== Performance Optimizations ===== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-shimmer,
+  .animate-gradient,
+  .animate-rotate {
+    animation: none !important;
+  }
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  .animate-float {
+    animation-duration: 8s;
+  }
+
+  .animate-shimmer {
+    animation-duration: 4s;
+  }
+
+  .animate-pulse-glow {
+    animation: none;
+  }
+
+  /* Optimize blur for mobile (heavy on GPU) */
+  .glass,
+  .glass-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Reduce box-shadow complexity */
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.15);
+  }
+
+  /* Optimize scrolling */
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto; /* Disable smooth scroll on mobile for better performance */
+  }
+
+  /* Reduce gradient complexity */
+  .bg-grid {
+    background-size: 80px 80px;
+  }
+}
+
+/* Very small screens / low-power devices */
+@media (max-width: 480px) {
+  /* Disable heavy animations */
+  .animate-float,
+  .animate-shimmer,
+  .animate-rotate {
+    animation: none !important;
+  }
+
+  /* Simplify glass effect */
+  .glass,
+  .glass-card {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  /* Disable hover transforms on touch devices */
+  .glass-card:hover,
+  .card-hover:hover {
+    transform: none;
+  }
+
+  /* Optimize typography rendering */
+  body {
+    text-rendering: optimizeSpeed;
+  }
+}
+
+/* GPU acceleration for animated elements */
+.animate-float,
+.animate-pulse-glow,
+.animate-shimmer,
+.animate-gradient,
+.animate-rotate {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize image rendering */
+img {
+  content-visibility: auto;
+}
+
+/* Layer promotion for smoother animations */
+.glass-card,
+.card-hover {
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+/* Optimize font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contain paint for sections */
+section {
+  contain: layout style;
+}
