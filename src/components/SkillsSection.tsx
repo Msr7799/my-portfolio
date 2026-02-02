@@ -89,19 +89,19 @@ export default function SkillsSection() {
 
                 {/* IconCloud + Technologies Grid */}
                 <div className="flex flex-col lg:flex-row items-center gap-8 mb-10">
-                    {/* IconCloud */}
+                    {/* IconCloud - Hidden on mobile for performance, visible only on lg screens */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.8 }}
-                        className="w-full lg:w-1/3 flex justify-center"
+                        className="hidden lg:flex w-full lg:w-1/3 justify-center"
                     >
-                        <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] relative">
+                        <div className="w-[350px] h-[350px] relative">
                             <IconCloud images={technologies.map(t => t.icon)} />
                         </div>
                     </motion.div>
 
-                    {/* Technologies Grid */}
+                    {/* Technologies Grid - Full width on mobile, 2/3 on large screens */}
                     <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className="w-full lg:w-2/3">
                         <div className="tech-grid grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 gap-3">
                             {technologies.map((tech) => (
