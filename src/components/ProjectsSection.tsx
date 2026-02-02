@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useApp } from "@/context/AppContext";
 
@@ -25,6 +25,18 @@ export default function ProjectsSection() {
     const isInView = useInView(ref, { once: true, amount: 0.1 });
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [activeFilter, setActiveFilter] = useState("All");
+
+    // Prevent background scroll when modal is open
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedProject]);
 
     const projects: Project[] = [
 
@@ -99,6 +111,18 @@ export default function ProjectsSection() {
             category: "API",
             liveUrl: "https://quran-api-msr.vercel.app",
             featured: false
+        },
+        {
+            id: 7,
+            title: "Chat App (Kotlin)",
+            titleAr: "تطبيق المحادثة (Kotlin)",
+            description: "A native Android chat application built with Kotlin featuring modern UI and smooth interactions.",
+            descriptionAr: "تطبيق دردشة أصلي لنظام أندرويد مبني باستخدام Kotlin يتميز بواجهة عصرية وتفاعلات سلسة.",
+            image: "/assets/PROJECTS/ChatUI-App.png",
+            tags: ["Kotlin", "Android", "Mobile", "XML"],
+            category: "Mobile",
+            liveUrl: "https://github.com/Msr7799/chat-ui-kotlin/blob/main/README.md",
+            featured: true
         }
     ];
 
@@ -213,13 +237,13 @@ export default function ProjectsSection() {
             {/* Project Modal */}
             <AnimatePresence>
                 {selectedProject && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md" onClick={() => setSelectedProject(null)}>
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setSelectedProject(null)}>
                         <motion.div
                             initial={{ scale: 0.9, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-[var(--background)] border border-[var(--border-color)] shadow-2xl"
+                            className="relative max-w-4xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-[var(--background)] border border-[var(--border-color)] shadow-2xl mx-auto my-auto"
                         >
                             {/* Close Button */}
                             <button onClick={() => setSelectedProject(null)} className={`absolute top-4 ${isRTL ? "left-4" : "right-4"} z-20 w-10 h-10 p-0 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-red-500 transition-all backdrop-blur-sm`}>
