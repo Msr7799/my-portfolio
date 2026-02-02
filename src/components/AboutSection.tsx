@@ -29,7 +29,7 @@ export default function AboutSection() {
 
             <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10" ref={ref}>
                 {/* Section Header */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-10">
+                <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4 }} className="text-center mb-10">
                     <span className="inline-block px-4 py-2 rounded-full bg-[#667eea]/10 text-[#667eea] text-xs font-medium mb-3">{t("aboutMe")}</span>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-3">
                         <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">{t("myJourney")}</span>
@@ -39,13 +39,13 @@ export default function AboutSection() {
 
                 <div className={`grid lg:grid-cols-2 gap-8 lg:gap-10 items-start`}>
                     {/* Left Column */}
-                    <motion.div initial={{ opacity: 0, x: isRTL ? 50 : -50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="space-y-6">
+                    <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.1 }} className="space-y-6">
                         {/* Profile Card */}
                         <div className="relative p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                             <div className={`flex flex-col sm:flex-row gap-6 sm:gap-8 items-center ${isRTL ? "sm:flex-row-reverse" : ""}`}>
                                 <div className="relative shrink-0">
-                                    {/* Image Container */}
-                                    <div className="w-32 h-[220px] rounded-xl overflow-hidden border-2 border-[#667eea]/30 shadow-xl shadow-[#667eea]/10">
+                                    {/* Image Container - Larger on desktop */}
+                                    <div className="w-32 h-[220px] lg:w-44 lg:h-[300px] rounded-xl overflow-hidden border-2 border-[#667eea]/30 shadow-xl shadow-[#667eea]/10">
                                         <Image src="/assets/My-pics/1.png" alt="Mohamed Alromaihi" fill className="object-cover" />
                                     </div>
                                     <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center border-4 border-[var(--background)] shadow-lg">
@@ -106,7 +106,7 @@ export default function AboutSection() {
                     </motion.div>
 
                     {/* Right Column - Timeline */}
-                    <motion.div initial={{ opacity: 0, x: isRTL ? -50 : 50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.4 }} className="space-y-6">
+                    <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.2 }} className="space-y-6">
                         {/* Experience */}
                         <div className="p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                             <h3 className={`text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-6 flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
@@ -117,13 +117,13 @@ export default function AboutSection() {
                             </h3>
                             <div className="space-y-6">
                                 {experiences.map((exp, index) => (
-                                    <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.5 + index * 0.1 }} className={`relative ${isRTL ? "pr-6 border-r-2" : "pl-6 border-l-2"} border-[#667eea]/30`}>
+                                    <div key={index} className={`relative ${isRTL ? "pr-6 border-r-2" : "pl-6 border-l-2"} border-[#667eea]/30`}>
                                         <div className={`absolute ${isRTL ? "-right-[9px]" : "-left-[9px]"} top-0 w-4 h-4 rounded-full bg-[#667eea] border-4 border-[var(--background)]`} />
                                         <span className="text-[#667eea] text-xs font-medium">{exp.year}</span>
                                         <h4 className="text-base sm:text-lg font-semibold text-[var(--foreground)] mt-1 mb-0.5">{exp.title}</h4>
                                         <p className="text-[var(--foreground-subtle)] text-xs mb-2">{exp.company}</p>
                                         <p className="text-[var(--foreground-muted)] text-xs leading-relaxed">{exp.description}</p>
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -138,12 +138,12 @@ export default function AboutSection() {
                             </h3>
                             <div className="space-y-4">
                                 {education.map((edu, index) => (
-                                    <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.7 + index * 0.1 }} className={`relative ${isRTL ? "pr-6 border-r-2" : "pl-6 border-l-2"} border-[#764ba2]/30`}>
+                                    <div key={index} className={`relative ${isRTL ? "pr-6 border-r-2" : "pl-6 border-l-2"} border-[#764ba2]/30`}>
                                         <div className={`absolute ${isRTL ? "-right-[9px]" : "-left-[9px]"} top-0 w-4 h-4 rounded-full bg-[#764ba2] border-4 border-[var(--background)]`} />
                                         <span className="text-[#764ba2] text-xs font-medium">{edu.year}</span>
                                         <h4 className="text-base sm:text-lg font-semibold text-[var(--foreground)] mt-1 mb-0.5">{edu.title}</h4>
                                         <p className="text-[var(--foreground-subtle)] text-xs">{edu.institution}</p>
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         </div>

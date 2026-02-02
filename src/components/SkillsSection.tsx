@@ -16,15 +16,15 @@ export default function SkillsSection() {
         { name: "JavaScript", icon: "/assets/tech/javascript.svg", category: "Languages" },
         { name: "TypeScript", icon: "/assets/tech/typescript.svg", category: "Languages" },
         { name: "CSS", icon: "/assets/tech/css.svg", category: "Languages" },
-        { name: "HTML", icon: "/assets/tech/html.png", category: "Languages" },
+        { name: "HTML", icon: "/assets/tech/html.svg", category: "Languages" },
         { name: "React", icon: "/assets/tech/react.svg", category: "Frameworks" },
         { name: "Next.js", icon: "/assets/tech/Nextjs.svg", category: "Frameworks", needsWhiteBg: true },
-        { name: "Node.js", icon: "/assets/tech/node.js.svg", category: "Frameworks", needsWhiteBg: true },
-        { name: "Python", icon: "/assets/tech/python.svg", category: "Languages", needsWhiteBg: true },
+        { name: "Node.js", icon: "/assets/tech/node.js.svg", category: "Frameworks" },
+        { name: "Python", icon: "/assets/tech/python.svg", category: "Languages" },
         { name: "Kotlin", icon: "/assets/tech/Kotlin.svg", category: "Languages" },
         { name: "Dart", icon: "/assets/tech/Dart.svg", category: "Languages" },
         { name: "Gradle", icon: "/assets/tech/Gradle.svg", category: "Tools" },
-        { name: "Flutter", icon: "/assets/tech/flutter.svg", category: "Frameworks", needsWhiteBg: true },
+        { name: "Flutter", icon: "/assets/tech/flutter.svg", category: "Frameworks" },
         { name: "Flask", icon: "/assets/tech/flask.svg", category: "Frameworks", needsWhiteBg: true },
         { name: "Tailwind", icon: "/assets/tech/tailwindCSS.png", category: "Frameworks" },
         { name: "Git", icon: "/assets/tech/Git.svg", category: "Tools" },
@@ -32,11 +32,12 @@ export default function SkillsSection() {
         { name: "Figma", icon: "/assets/tech/Figma.svg", category: "Tools" },
         { name: "Firebase", icon: "/assets/tech/firebase.svg", category: "Cloud" },
         { name: "PostgreSQL", icon: "/assets/tech/postgresql.svg", category: "Database" },
-        { name: "MongoDB", icon: "/assets/tech/MongoDB.svg", category: "Database", needsWhiteBg: true },
-        { name: "Linux", icon: "/assets/tech/linux.svg", category: "OS", needsWhiteBg: true },
-        { name: "Android", icon: "/assets/tech/android.svg", category: "OS" },
+        { name: "MongoDB", icon: "/assets/tech/MongoDB.svg", category: "Database" },
+        { name: "Linux", icon: "/assets/tech/linux.svg", category: "OS" },
+        { name: "Android", icon: "/assets/tech/Android-Studio.svg", category: "OS" },
         { name: "iOS", icon: "/assets/tech/ios.svg", category: "OS", needsWhiteBg: true },
         { name: "Google Cloud", icon: "/assets/tech/google-cloud.svg", category: "Cloud" },
+        { name: "colab", icon: "/assets/tech/colab.svg", category: "Tools" },
         { name: "Oracle", icon: "/assets/tech/Oracle.svg", category: "Database", needsWhiteBg: true },
         { name: "SQLite", icon: "/assets/tech/SQLite.svg", category: "Database", needsWhiteBg: true },
         { name: "Postman", icon: "/assets/tech/postman.svg", category: "Tools" },
@@ -45,8 +46,9 @@ export default function SkillsSection() {
         { name: "Microsoft", icon: "/assets/tech/Microsoft.svg", category: "Tools", needsWhiteBg: true },
         { name: "Vercel", icon: "/assets/tech/vercel.svg", category: "Tools", needsWhiteBg: true },
         { name: "Vite", icon: "/assets/tech/Vite.svg", category: "Tools" },
-        { name: "Godot Engine", icon: "/assets/tech/Godot-Engine.svg", category: "Tools", needsWhiteBg: true },
-        { name: "Github", icon: "/assets/tech/github.svg", category: "Tools", needsWhiteBg: true },
+        { name: "Godot Engine", icon: "/assets/tech/Godot-Engine.svg", category: "Tools" },
+        { name: "Github", icon: "/assets/tech/github.svg", category: "Tools" },
+        { name: "NeonDB", icon: "/assets/tech/neon-DB.svg", category: "Tools" },
     ];
 
     const technicalSkills = [
@@ -69,8 +71,9 @@ export default function SkillsSection() {
         { name: t("discipline"), icon: Zap },
     ];
 
-    const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.05 } } };
-    const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
+    // Simplified animation variants for better performance
+    const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.02 } } };
+    const itemVariants = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
 
     return (
         <section id="skills" className="relative py-16 sm:py-20 overflow-hidden">
@@ -79,7 +82,7 @@ export default function SkillsSection() {
 
             <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10" ref={ref}>
                 {/* Section Header */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-10">
+                <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4 }} className="text-center mb-10">
                     <span className="inline-block px-4 py-2 rounded-full bg-[#667eea]/10 text-[#667eea] text-xs font-medium mb-3">{t("skillsAndTech")}</span>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-3">
                         <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">{t("myTechStack")}</span>
@@ -91,9 +94,9 @@ export default function SkillsSection() {
                 <div className="flex flex-col lg:flex-row items-center gap-8 mb-10">
                     {/* IconCloud - Hidden on mobile for performance, visible only on lg screens */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : {}}
+                        transition={{ duration: 0.5 }}
                         className="hidden lg:flex w-full lg:w-1/3 justify-center"
                     >
                         <div className="w-[350px] h-[350px] relative">
@@ -108,12 +111,10 @@ export default function SkillsSection() {
                                 <motion.div
                                     key={tech.name}
                                     variants={itemVariants}
-                                    whileHover={{ scale: 1.1, y: -5 }}
-                                    className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-sm hover:border-[#667eea]/50 hover:bg-[var(--background-card)] transition-all duration-300 cursor-pointer"
+                                    className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-sm hover:border-[#667eea]/50 hover:bg-[var(--background-card)] transition-colors duration-200 cursor-pointer"
                                 >
-                                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer" />
-                                    <div className={`relative w-12 h-12 flex items-center justify-center ${tech.needsWhiteBg ? 'bg-white rounded-xl p-1.5' : ''}`}>
-                                        <Image src={tech.icon} alt={tech.name} width={40} height={40} className="object-contain" />
+                                    <div className={`relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center ${tech.needsWhiteBg ? 'bg-white/80 rounded-xl p-0.5' : ''}`}>
+                                        <Image src={tech.icon} alt={tech.name} width={80} height={80} className="object-contain" />
                                     </div>
                                     <span className="text-[10px] sm:text-xs text-[var(--foreground-muted)] group-hover:text-[var(--foreground)] transition-colors text-center">{tech.name}</span>
                                 </motion.div>
@@ -125,7 +126,7 @@ export default function SkillsSection() {
                 {/* Skills Grid */}
                 <div className={`grid lg:grid-cols-2 gap-8`}>
                     {/* Technical Skills */}
-                    <motion.div initial={{ opacity: 0, x: isRTL ? 50 : -50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.3 }} className="p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
+                    <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.1 }} className="p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                         <h3 className={`text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-6 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
                             <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
                                 <Settings className="w-5 h-5 text-white" />
@@ -134,7 +135,7 @@ export default function SkillsSection() {
                         </h3>
                         <div className="space-y-5">
                             {technicalSkills.map((skill, index) => (
-                                <motion.div key={skill.name} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.4 + index * 0.1 }}>
+                                <div key={skill.name}>
                                     <div className={`flex justify-between mb-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                                         <span className="text-[var(--foreground)] font-medium text-sm sm:text-base">{skill.name}</span>
                                         <span className="text-[#667eea] font-semibold text-sm sm:text-base">{skill.level}%</span>
@@ -143,19 +144,17 @@ export default function SkillsSection() {
                                         <motion.div
                                             initial={{ width: 0 }}
                                             animate={isInView ? { width: `${skill.level}%` } : {}}
-                                            transition={{ duration: 1, delay: 0.5 + index * 0.1, ease: "easeOut" }}
-                                            className="h-full rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] relative"
-                                        >
-                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
-                                        </motion.div>
+                                            transition={{ duration: 0.6, delay: 0.1 + index * 0.05, ease: "easeOut" }}
+                                            className="h-full rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2]"
+                                        />
                                     </div>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
                     </motion.div>
 
                     {/* Soft Skills */}
-                    <motion.div initial={{ opacity: 0, x: isRTL ? -50 : 50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.4 }} className="p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
+                    <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.2 }} className="p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                         <h3 className={`text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-6 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
                             <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#764ba2] to-[#00d9ff] flex items-center justify-center">
                                 <Target className="w-5 h-5 text-white" />
@@ -163,25 +162,21 @@ export default function SkillsSection() {
                             {t("softSkills")}
                         </h3>
                         <div className="grid grid-cols-2 gap-3">
-                            {softSkills.map((skill, index) => (
-                                <motion.div
+                            {softSkills.map((skill) => (
+                                <div
                                     key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                    transition={{ delay: 0.5 + index * 0.08 }}
-                                    whileHover={{ scale: 1.05, rotate: 1 }}
-                                    className={`flex items-center gap-3 p-3 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] hover:border-[#764ba2]/50 transition-all cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}
+                                    className={`flex items-center gap-3 p-3 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] hover:border-[#764ba2]/50 transition-colors cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}
                                 >
                                     <skill.icon className="w-5 h-5 text-[#667eea]" />
                                     <span className="text-[var(--foreground)] font-medium text-xs sm:text-sm">{skill.name}</span>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
                     </motion.div>
                 </div>
 
                 {/* Expertise Areas */}
-                <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.6 }} className="mt-8 p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
+                <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.3 }} className="mt-8 p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                     <h3 className={`text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-4 text-center flex items-center justify-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
                         <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00d9ff] to-[#667eea] flex items-center justify-center">
                             <Rocket className="w-5 h-5 text-white" />

@@ -8,7 +8,7 @@ interface PreloaderProps {
 }
 
 const images = [
-    "/assets/tech/android.svg",
+    "/assets/tech/Android-Studio.svg",
     "/assets/tech/bootstrap.svg",
     "/assets/tech/cloudinary.png",
     "/assets/tech/colab.svg",
@@ -25,7 +25,7 @@ const images = [
     "/assets/tech/Godot-Engine.svg",
     "/assets/tech/google-cloud.svg",
     "/assets/tech/google-play.svg",
-    "/assets/tech/html.png",
+    "/assets/tech/html.svg",
     "/assets/tech/ios.svg",
     "/assets/tech/javascript.svg",
     "/assets/tech/linux.svg",
@@ -70,20 +70,20 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             setCurrentFact((prev) => (prev + 1) % facts.length);
         }, 2000);
 
-        // Progress animation - reaches 100% over 8 seconds
+        // Progress animation - reaches 100% over 5 seconds
         const progressInterval = setInterval(() => {
             setProgress((prev) => {
                 if (prev >= 100) return 100;
-                return prev + 1.25;
+                return prev + 2.5;
             });
         }, 100);
 
-        // Hide preloader after 8 seconds
+        // Hide preloader after 5 seconds
         const hideTimer = setTimeout(() => {
             setProgress(100);
             setIsVisible(false);
             setTimeout(onComplete, 500);
-        }, 8000);
+        }, 5000);
 
         return () => {
             clearInterval(factInterval);

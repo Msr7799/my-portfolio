@@ -46,7 +46,7 @@ export default function ContactSection() {
 
             <div className="container mx-auto px-6 sm:px-8 relative z-10" ref={ref}>
                 {/* Section Header */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-20">
+                <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4 }} className="text-center mb-14 sm:mb-20">
                     <span className="inline-block px-6 py-2.5 rounded-full bg-[#667eea]/10 text-[#667eea] text-sm font-medium mb-6">{t("getInTouch")}</span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                         <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">{t("letsWorkTogether")}</span>
@@ -56,35 +56,26 @@ export default function ContactSection() {
 
                 <div className={`grid lg:grid-cols-2 gap-10 sm:gap-16 ${isRTL ? "" : ""}`}>
                     {/* Left Column - Contact Info */}
-                    <motion.div initial={{ opacity: 0, x: isRTL ? 50 : -50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="space-y-8">
+                    <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.1 }} className="space-y-8">
                         {/* Contact Cards */}
                         <div className="space-y-5">
-                            {contactInfo.map((info, index) => (
-                                <motion.a
+                            {contactInfo.map((info) => (
+                                <a
                                     key={info.label}
                                     href={info.link}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                    transition={{ delay: 0.3 + index * 0.1 }}
-                                    whileHover={{ scale: 1.02, x: isRTL ? -5 : 5 }}
-                                    className={`flex items-center gap-5 p-6 sm:p-7 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:border-[#667eea]/50 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
+                                    className={`flex items-center gap-5 p-6 sm:p-7 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:border-[#667eea]/50 transition-colors ${isRTL ? "flex-row-reverse" : ""}`}
                                 >
                                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center text-2xl">{info.icon}</div>
                                     <div className={`${isRTL ? "text-right" : "text-left"}`}>
                                         <p className="text-[var(--foreground-subtle)] text-sm">{info.label}</p>
                                         <p className="text-[var(--foreground)] font-medium">{info.value}</p>
                                     </div>
-                                </motion.a>
+                                </a>
                             ))}
                         </div>
 
                         {/* CV Download */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: 0.6 }}
-                            className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#667eea]/20 to-[#764ba2]/20 border border-[#667eea]/30 backdrop-blur-xl"
-                        >
+                        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#667eea]/20 to-[#764ba2]/20 border border-[#667eea]/30 backdrop-blur-xl">
                             <div className={`flex items-center gap-4 mb-4 ${isRTL ? "flex-row-reverse" : ""}`}>
                                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
                                     <FileText className="w-7 h-7 text-white" />
@@ -94,42 +85,38 @@ export default function ContactSection() {
                                     <p className="text-[var(--foreground-muted)] text-sm">{t("cvDesc")}</p>
                                 </div>
                             </div>
-                            <motion.a
+                            <a
                                 href="/assets/MOHAMED-SAUD-ALROMAIHI.pdf"
                                 download
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white font-semibold hover:shadow-lg hover:shadow-[#667eea]/30 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
+                                className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white font-semibold hover:shadow-lg hover:shadow-[#667eea]/30 transition-shadow ${isRTL ? "flex-row-reverse" : ""}`}
                             >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                                 {t("downloadCV")}
-                            </motion.a>
-                        </motion.div>
+                            </a>
+                        </div>
 
                         {/* Social Links */}
-                        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.7 }} className={`flex gap-4 ${isRTL ? "justify-end" : "justify-start"}`}>
+                        <div className={`flex gap-4 ${isRTL ? "justify-end" : "justify-start"}`}>
                             {socialLinks.map((social) => (
-                                <motion.a
+                                <a
                                     key={social.name}
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.1, y: -3 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="w-14 h-14 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground-muted)] hover:text-[#667eea] hover:border-[#667eea]/50 transition-all"
+                                    className="w-14 h-14 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground-muted)] hover:text-[#667eea] hover:border-[#667eea]/50 transition-colors"
                                 >
                                     {social.icon}
-                                </motion.a>
+                                </a>
                             ))}
-                        </motion.div>
+                        </div>
                     </motion.div>
 
                     {/* Right Column - Contact Form */}
                     <motion.form
                         onSubmit={handleSubmit}
-                        initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.3 }}
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : {}}
+                        transition={{ duration: 0.4, delay: 0.2 }}
                         className="p-7 sm:p-10 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl"
                     >
                         <h3 className={`text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-8 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
@@ -177,12 +164,10 @@ export default function ContactSection() {
                                     placeholder={isRTL ? "أدخل رسالتك" : "Enter your message"}
                                 />
                             </div>
-                            <motion.button
+                            <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={`w-full flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white font-semibold disabled:opacity-70 hover:shadow-lg hover:shadow-[#667eea]/30 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
+                                className={`w-full flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white font-semibold disabled:opacity-70 hover:shadow-lg hover:shadow-[#667eea]/30 transition-shadow active:scale-[0.98] ${isRTL ? "flex-row-reverse" : ""}`}
                             >
                                 {isSubmitting ? (
                                     <>
@@ -195,7 +180,7 @@ export default function ContactSection() {
                                         {t("sendBtn")}
                                     </>
                                 )}
-                            </motion.button>
+                            </button>
                         </div>
                     </motion.form>
                 </div>

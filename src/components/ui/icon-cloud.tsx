@@ -66,15 +66,14 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
         // List of icons that need a white background for visibility on dark theme
         const darkIcons = [
-            "github", "nextjs", "node.js", "vercel", "linux", "openai",
-            "microsoft", "oracle", "sqlite", "window", "ios", "markdown",
-            "vscode", "android-studio", "colab", "neon-db", "postman"
+             "nextjs", "vercel", "openai",
+            "oracle", "ios", "markdown", "flask"     
         ];
 
         const newIconCanvases = items.map((item, index) => {
             const offscreen = document.createElement("canvas")
-            offscreen.width = 40
-            offscreen.height = 40
+            offscreen.width = 45
+            offscreen.height = 45
             const offCtx = offscreen.getContext("2d")
 
             if (offCtx) {
