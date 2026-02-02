@@ -199,7 +199,7 @@ export default function ProjectsSection() {
                 {/* View More */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.5 }} className="text-center mt-12">
                     <a
-                        href="https://github.com/Msr7799"
+                        href="https://github.com/MSR7799"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`inline-flex items-center cursor-pointer gap-2 px-6 py-3 rounded-full border-2 border-[var(--border-color)] text-[var(--foreground)] font-medium hover:border-[#667eea] hover:bg-[#667eea]/10 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
