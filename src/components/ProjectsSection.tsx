@@ -123,11 +123,27 @@ export default function ProjectsSection() {
             category: "Mobile",
             liveUrl: "https://github.com/Msr7799/Almuadhin",
             featured: true
+        },
+        {
+            id: 9,
+            title: "All Weather",
+            titleAr: "تطبيق شركة all weather",
+            description: "A weather application built with modern web technologies providing comprehensive weather information and forecasts.",
+            descriptionAr: "تطبيق طقس مبني بتقنيات الويب الحديثة يوفر معلومات وتوقعات جوية شاملة.",
+            image: "/assets/PROJECTS/All-Weather.png",
+            tags: ["TypeScript", "React", "Next.js", "API", "Database"],
+            category: "Web Apps",
+            liveUrl: "https://all-weather-bh.vercel.app",
+            featured: true
         }
     ];
-
     const categories = [t("all"), t("webApps"), t("mobile"), t("api")];
-    const categoryMap: { [key: string]: string } = { [t("all")]: "All", [t("webApps")]: "Web Apps", [t("mobile")]: "Mobile", [t("api")]: "API" };
+    const categoryMap: Record<string, string> = {
+        [t("all")]: "All",
+        [t("webApps")]: "Web Apps",
+        [t("mobile")]: "Mobile",
+        [t("api")]: "API"
+    };
 
     const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
 

@@ -194,18 +194,17 @@ export default function HeroSection() {
 
                             {/* Orbiting Tech Icons */}
                             <motion.div
-                                animate={{ rotate: 360 }}
+                                animate={{ rotate: 340 }}
                                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-0 z-20 pointer-events-none"
+                                className="absolute inset-0 z-20 pointer-events-none "
                             >
                                 {[
                                     { src: "/assets/tech/github-icon.svg", alt: "GitHub", needsWhiteBg: true },
                                     { src: "/assets/tech/Microsoft.svg", alt: "Windows" },
                                     { src: "/assets/tech/linux.svg", alt: "Linux", needsWhiteBg: true },
-                                    { src: "/assets/tech/openai.svg", alt: "AI", needsWhiteBg: true },
+                                    { src: "/assets/tech/military.svg", alt: "Military" },
                                     { src: "/assets/tech/Android-Studio.svg", alt: "Android Studio", needsWhiteBg: true },
-                                    { src: "/assets/tech/vscode.svg", alt: "VS Code", needsWhiteBg: true },
-                                    { src: "/assets/tech/military.svg", alt: "Military", needsWhiteBg: true }
+                                    { src: "/assets/tech/vscode.svg", alt: "VS Code" }
                                 ].map((icon, index, array) => {
                                     const angle = (index / array.length) * 2 * Math.PI;
                                     const radius = orbitRadius;
@@ -225,7 +224,7 @@ export default function HeroSection() {
                                             <motion.div
                                                 animate={{ rotate: -360 }}
                                                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                                                className={`p-3 rounded-full ${icon.needsWhiteBg ? 'bg-white' : 'bg-[var(--background-glass)]'} backdrop-blur-xl border border-[var(--border-color)] shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center hover:scale-125 transition-all duration-300 pointer-events-auto cursor-help w-16 h-16`}
+                                                className={` p-3 rounded-full ${icon.needsWhiteBg ? 'bg-white/80 ' : 'bg-[var(--background-glass)] border-2 '} backdrop-blur-xl border border-[var(--border-color)] shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center hover:scale-105 transition-all duration-300 pointer-events-auto cursor-help w-16 h-16`}
                                                 title={icon.alt}
                                             >
                                                 <div className="relative w-10 h-10 flex items-center justify-center">
