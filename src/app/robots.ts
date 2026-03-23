@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://yourdomain.com/sitemap.xml', // TODO: قم بتغيير الدومين هنا
+    sitemap: 'https://portfolio-msr-bh.vercel.app/sitemap.xml', 
   }
 }

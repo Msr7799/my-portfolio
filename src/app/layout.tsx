@@ -16,8 +16,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mohamed Alromaihi | Full-Stack Developer & Cybersecurity Expert",
   description: "Portfolio of Mohamed Saud Alromaihi - Full-Stack Developer, Cybersecurity Technician, and former Military Officer. Specializing in React, Next.js, TypeScript, Flutter, and secure web applications.",
-  keywords: ["Full-Stack Developer", "Cybersecurity", "React", "Next.js", "TypeScript", "Flutter", "Bahrain", "Web Developer", "Mobile App Developer"],
-  authors: [{ name: "Mohamed Saud Alromaihi" }],
+  keywords: [
+    "MOHAMED SAUD ALROMAIHI", "محمد سعود الرميحي", "MOHAMED ALROMAIHI CV", "سيرة ذاتية محمد سعود الرميحي",
+    "Military Officer Developer", "ضابط عسكري مبرمج", "Cybersecurity Military Expert", "تقنية معلومات عسكرية",
+    "Programming Languages", "لغات البرمجة", "Python", "JavaScript", "Dart", "Kotlin", "SQL",
+    "GitHub Portfolio", "بورتفوليو مبرمج", "Full-Stack Developer", "Cybersecurity Expert", "React Developer",
+    "Next.js Developer", "TypeScript Specialist", "Flutter Developer", "Mobile App Development", "Bahrain Developer",
+    "Software Engineer", "Secure Coding", "Penetration Testing Specialist", "Cybersecurity Technician",
+    "مطور تطبيقات ذكي", "خبير أمن سيبراني محترف", "مبرمج فول ستاك البحرين", "تطوير مواقع إنترنت", "برمجة تطبيقات الهاتف",
+    "Web Security", "Cloud Computing", "Vercel", "MongoDB", "PostgreSQL", "Firebase", "Node.js Developer",
+    "Kingdom of Bahrain", "المنامة", "Manama", "Bahrain IT", "تقنية المعلومات البحرين", "Portfolio GitHub"
+  ],
+  authors: [{ name: "MOHAMED SAUD ALROMAIHI" }],
   openGraph: {
     title: "Mohamed Alromaihi | Full-Stack Developer & Cybersecurity Expert",
     description: "Portfolio of Mohamed Saud Alromaihi - Full-Stack Developer, Cybersecurity Technician, and former Military Officer.",
