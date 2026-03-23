@@ -65,25 +65,25 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        // Change facts every 2 seconds
+        // Change facts every 1.5 seconds
         const factInterval = setInterval(() => {
             setCurrentFact((prev) => (prev + 1) % facts.length);
-        }, 2000);
+        }, 1500);
 
-        // Progress animation - reaches 100% over 5 seconds
+        // Progress animation - reaches 100% over 2.5 seconds
         const progressInterval = setInterval(() => {
             setProgress((prev) => {
                 if (prev >= 100) return 100;
-                return prev + 2.5;
+                return prev + 4;
             });
         }, 100);
 
-        // Hide preloader after 5 seconds
+        // Hide preloader after 2.5 seconds
         const hideTimer = setTimeout(() => {
             setProgress(100);
             setIsVisible(false);
             setTimeout(onComplete, 500);
-        }, 5000);
+        }, 2500);
 
         return () => {
             clearInterval(factInterval);
