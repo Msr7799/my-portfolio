@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.29.2",
     "lucide-react": "^0.563.0",
     "motion": "^12.29.2",
