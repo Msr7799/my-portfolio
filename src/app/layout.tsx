@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     title: "Mohamed Alromaihi | Full-Stack Developer",
     description: "Full-Stack Developer & Cybersecurity Expert from Bahrain",
   },
+  verification: {
+    google: "XdswI_AWMYiU1J3GYvLLzA75POgQyu-QdyvW8cIhcUs",
+  },
   robots: { index: true, follow: true },
 };
 
