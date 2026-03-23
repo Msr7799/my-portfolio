@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     description: "Full-Stack Developer & Cybersecurity Expert from Bahrain",
   },
   verification: {
-    google: "XdswI_AWMYiU1J3GYvLLzA75POgQyu-QdyvW8cIhcUs",
+    google: "ycNyhEdJMXnREHv1Ez1RlLYDNN-sC5AlVPe9oyfh4l4",
   },
   robots: { index: true, follow: true },
 };
