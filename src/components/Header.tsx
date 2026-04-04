@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useApp } from "@/context/AppContext";
 import { FileText } from "lucide-react";
+import Image from "next/image";
+import WeatherWidget from "./WeatherWidget";
 
 export default function Header() {
   const { theme, toggleTheme, language, toggleLanguage, t, isRTL } = useApp();
@@ -48,11 +50,8 @@ export default function Header() {
         {/* Logo */}
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link href="#home" className={`flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] blur-lg opacity-50" />
-              <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
-                <span className="text-sm sm:text-base font-bold text-white font-mono">&lt;/&gt;</span>
-              </div>
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl">
+              <Image src="/portfolio-logo.svg" alt="Mohamed Alromaihi Logo" fill className="object-contain" priority />
             </div>
             <span className="hidden sm:block text-base sm:text-lg font-bold bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">
               {isRTL ? "محمد الرميحي" : "Mohamed Alromaihi"}
@@ -89,6 +88,7 @@ export default function Header() {
 
         {/* Actions */}
         <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
+          <WeatherWidget />
           {/* Language Toggle */}
           <motion.button
             onClick={toggleLanguage}

@@ -185,7 +185,7 @@ export default function ProjectsSection() {
 
             {/* Image Container */}
             <div className="relative h-44 sm:h-52 overflow-hidden">
-                <Image src={project.image} alt={project.title} fill className="object-cover" />
+                <Image src={project.image} alt={project.title} fill className="object-cover" unoptimized={project.image.endsWith('.gif')} />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent opacity-60" />
             </div>
 

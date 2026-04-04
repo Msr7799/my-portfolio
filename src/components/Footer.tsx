@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useApp } from "@/context/AppContext";
 import { useState, useEffect } from "react";
 
@@ -51,8 +52,8 @@ export default function Footer() {
                 <div className={`flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 ${isRTL ? "md:flex-row-reverse" : ""}`}>
                     {/* Logo */}
                     <motion.div whileHover={{ scale: 1.05 }} className={`flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
-                            <span className="text-base font-bold text-white">M</span>
+                        <div className="relative w-8 h-8 rounded-lg overflow-hidden">
+                            <Image src="/portfolio-logo.svg" alt="Logo" fill className="object-contain" />
                         </div>
                         <span className="text-base font-bold bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">
                             {language === "ar" ? "محمد الرميحي" : "Mohamed Alromaihi"}
