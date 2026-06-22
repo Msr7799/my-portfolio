@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState, useMemo } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { renderToString } from "react-dom/server"
 
 
@@ -155,7 +155,11 @@ export function IconCloud({ icons, images }: IconCloudProps) {
                 id: i,
             })
         }
-        setIconPositions(newIcons)
+        const positionTimer = window.setTimeout(() => {
+            setIconPositions(newIcons)
+        }, 0)
+
+        return () => window.clearTimeout(positionTimer)
     }, [icons, images])
 
     // Handle mouse events

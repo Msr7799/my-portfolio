@@ -14,13 +14,15 @@ export function useOptimizedAnimations() {
     useEffect(() => {
         // Check for mobile device
         const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768 || 
+            setIsMobile(window.innerWidth < 768 ||
                 /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
         };
 
         // Check for reduced motion preference
         const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-        setPrefersReducedMotion(mediaQuery.matches);
+        const handleReducedMotionChange = (event: MediaQueryListEvent) => {
+            setPrefersReducedMotion(event.matches);
+        };
 
         // Check for low power device (heuristic: mobile + low memory)
         const checkLowPower = () => {
@@ -30,15 +32,24 @@ export function useOptimizedAnimations() {
             setIsLowPowerDevice(lowMemory || (mobileDevice && window.innerWidth < 480));
         };
 
-        checkMobile();
-        checkLowPower();
+        const checkDevice = () => {
+            checkMobile();
+            checkLowPower();
+        };
+
+        const initialCheck = window.setTimeout(() => {
+            setPrefersReducedMotion(mediaQuery.matches);
+            checkDevice();
+        }, 0);
 
         // Listen for resize
-        window.addEventListener("resize", checkMobile);
-        mediaQuery.addEventListener("change", (e) => setPrefersReducedMotion(e.matches));
+        window.addEventListener("resize", checkDevice);
+        mediaQuery.addEventListener("change", handleReducedMotionChange);
 
         return () => {
-            window.removeEventListener("resize", checkMobile);
+            window.clearTimeout(initialCheck);
+            window.removeEventListener("resize", checkDevice);
+            mediaQuery.removeEventListener("change", handleReducedMotionChange);
         };
     }, []);
 

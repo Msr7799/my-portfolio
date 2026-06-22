@@ -149,10 +149,14 @@ export default function ProjectsSection() {
 
     // Reset active slide when filter changes
     useEffect(() => {
-        setActiveSlide(0);
-        if (carouselRef.current) {
-            carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        }
+        const resetTimer = window.setTimeout(() => {
+            setActiveSlide(0);
+            if (carouselRef.current) {
+                carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+            }
+        }, 0);
+
+        return () => window.clearTimeout(resetTimer);
     }, [activeFilter]);
 
     // Handle scroll to update active slide indicator

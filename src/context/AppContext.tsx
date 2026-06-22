@@ -216,10 +216,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const [language, setLanguage] = useState<Language>("en");
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") as Theme;
-        const savedLanguage = localStorage.getItem("language") as Language;
-        if (savedTheme) setTheme(savedTheme);
-        if (savedLanguage) setLanguage(savedLanguage);
+        const savedSettingsTimer = window.setTimeout(() => {
+            const savedTheme = localStorage.getItem("theme") as Theme;
+            const savedLanguage = localStorage.getItem("language") as Language;
+            if (savedTheme) setTheme(savedTheme);
+            if (savedLanguage) setLanguage(savedLanguage);
+        }, 0);
+
+        return () => window.clearTimeout(savedSettingsTimer);
     }, []);
 
     useEffect(() => {

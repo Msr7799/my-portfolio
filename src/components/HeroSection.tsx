@@ -2,22 +2,30 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useApp } from "@/context/AppContext";
-import { Medal, Shield } from "lucide-react";
+import { useOptimizedAnimations } from "@/hooks/usePerformance";
 
 export default function HeroSection() {
     const { t, isRTL, language } = useApp();
-    const roles = [t("role1"), t("role2"), t("role3"), t("role4")];
+    const { isMobile, isLowPowerDevice, prefersReducedMotion } = useOptimizedAnimations();
+    const roles = useMemo(() => [t("role1"), t("role2"), t("role3"), t("role4")], [t]);
     const [currentRole, setCurrentRole] = useState(0);
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
     const [orbitRadius, setOrbitRadius] = useState(210);
+    const shouldReduceMotion = prefersReducedMotion || isLowPowerDevice;
+    const shouldRunAmbientMotion = !isMobile && !shouldReduceMotion;
+    const shouldRunOrbitMotion = !shouldReduceMotion;
+    const orbitDuration = isMobile ? 42 : 25;
+    const iconShellSize = isMobile ? "w-13 h-13 p-2.5" : "w-16 h-16 p-3";
+    const iconImageSize = isMobile ? "w-8 h-8" : "w-10 h-10";
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 640) setOrbitRadius(150);
-            else if (window.innerWidth < 1024) setOrbitRadius(220);
+            if (window.innerWidth < 380) setOrbitRadius(118);
+            else if (window.innerWidth < 640) setOrbitRadius(128);
+            else if (window.innerWidth < 1024) setOrbitRadius(190);
             else setOrbitRadius(175);
         };
         handleResize();
@@ -47,9 +55,13 @@ export default function HeroSection() {
     }, [displayText, isDeleting, currentRole, roles]);
 
     useEffect(() => {
-        setDisplayText("");
-        setCurrentRole(0);
-        setIsDeleting(false);
+        const resetTimer = window.setTimeout(() => {
+            setDisplayText("");
+            setCurrentRole(0);
+            setIsDeleting(false);
+        }, 0);
+
+        return () => window.clearTimeout(resetTimer);
     }, [language]);
 
     return (
@@ -60,9 +72,13 @@ export default function HeroSection() {
             <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-to-tl from-[#00d9ff]/10 to-transparent blur-3xl pointer-events-none" />
 
             {/* Floating Orbs */}
-            <motion.div animate={{ y: [0, -30, 0], x: [0, 15, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#667eea] blur-sm pointer-events-none" />
-            <motion.div animate={{ y: [0, 20, 0], x: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#764ba2] blur-sm pointer-events-none" />
-            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#00d9ff] blur-sm pointer-events-none" />
+            {shouldRunAmbientMotion && (
+                <>
+                    <motion.div animate={{ y: [0, -30, 0], x: [0, 15, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#667eea] blur-sm pointer-events-none" />
+                    <motion.div animate={{ y: [0, 20, 0], x: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#764ba2] blur-sm pointer-events-none" />
+                    <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#00d9ff] blur-sm pointer-events-none" />
+                </>
+            )}
 
             <div className="container mx-auto px-6 sm:px-8 lg:px-12">
                 <div className={`flex flex-col ${isRTL ? "lg:flex-row-reverse" : "lg:flex-row"} items-center justify-between gap-12 lg:gap-16`}>
@@ -164,17 +180,17 @@ export default function HeroSection() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className={`flex-1 flex flex-col items-center mt-10 gap-8 ${isRTL ? "lg:items-start" : "lg:items-end"}`}
+                        className={`flex-1 flex flex-col items-center mt-10 mb-16 sm:mb-10 lg:mb-0 gap-8 ${isRTL ? "lg:items-start" : "lg:items-end"}`}
                     >
                         {/* Hero Image Container */}
-                        <div className="relative hero-image w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[340px] md:h-[340px]">
+                        <div className="relative hero-image w-[260px] h-[260px] min-[380px]:w-[280px] min-[380px]:h-[280px] sm:w-[320px] sm:h-[320px] md:w-[340px] md:h-[340px]">
                             {/* Glow Effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-full blur-3xl opacity-30 scale-110" />
 
                             {/* Rotating Border */}
                             <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                                animate={shouldRunOrbitMotion ? { rotate: 360 } : { rotate: 0 }}
+                                transition={{ duration: isMobile ? 32 : 20, repeat: shouldRunOrbitMotion ? Infinity : 0, ease: "linear" }}
                                 className="absolute -inset-4 rounded-full"
                                 style={{ background: `conic-gradient(from 0deg, #667eea, #764ba2, #00d9ff, #667eea)`, padding: "3px" }}
                             >
@@ -194,8 +210,8 @@ export default function HeroSection() {
 
                             {/* Orbiting Tech Icons */}
                             <motion.div
-                                animate={{ rotate: 340 }}
-                                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                animate={shouldRunOrbitMotion ? { rotate: 340 } : { rotate: 0 }}
+                                transition={{ duration: orbitDuration, repeat: shouldRunOrbitMotion ? Infinity : 0, ease: "linear" }}
                                 className="absolute inset-0 z-20 pointer-events-none "
                             >
                                 {[
@@ -222,12 +238,12 @@ export default function HeroSection() {
                                             }}
                                         >
                                             <motion.div
-                                                animate={{ rotate: -360 }}
-                                                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                                                className={` p-3 rounded-full ${icon.needsWhiteBg ? 'bg-white/80 ' : 'bg-[var(--background-glass)] border-2 '} backdrop-blur-xl border border-[var(--border-color)] shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center hover:scale-105 transition-all duration-300 pointer-events-auto cursor-help w-16 h-16`}
+                                                animate={shouldRunOrbitMotion ? { rotate: -360 } : { rotate: 0 }}
+                                                transition={{ duration: orbitDuration, repeat: shouldRunOrbitMotion ? Infinity : 0, ease: "linear" }}
+                                                className={`${iconShellSize} rounded-full ${icon.needsWhiteBg ? 'bg-white/80 ' : 'bg-[var(--background-glass)] border-2 '} backdrop-blur-md sm:backdrop-blur-xl border border-[var(--border-color)] shadow-[0_0_14px_rgba(255,255,255,0.08)] sm:shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center hover:scale-105 transition-all duration-300 pointer-events-auto cursor-help`}
                                                 title={icon.alt}
                                             >
-                                                <div className="relative w-10 h-10 flex items-center justify-center">
+                                                <div className={`relative ${iconImageSize} flex items-center justify-center`}>
                                                     <Image
                                                         src={icon.src}
                                                         alt={icon.alt}
@@ -245,7 +261,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Scroll Indicator - mt-16 للمسافة فوقه */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden lg:block">
                     <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="flex flex-col items-center gap-3">
                         <span className="text-sm text-[var(--foreground-subtle)]">{t("scrollDown")}</span>
                         <div className="w-6 h-10 rounded-full border-2 border-[var(--border-color)] flex items-start justify-center p-2">

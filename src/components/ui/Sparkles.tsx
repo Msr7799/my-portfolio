@@ -153,7 +153,7 @@ export function ShimmerButton({
                 className="absolute inset-0 animate-shimmer"
                 style={{
                     background: `linear-gradient(90deg, transparent, ${shimmerColor}30, transparent)`,
-                    backgroundSize: "200% 100%",
+                    backgroundSize: `calc(200% + ${shimmerSize}) 100%`,
                 }}
             />
             <span className="relative z-10">{children}</span>

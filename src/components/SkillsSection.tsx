@@ -26,7 +26,7 @@ export default function SkillsSection() {
         { name: "Gradle", icon: "/assets/tech/Gradle.svg", category: "Tools" },
         { name: "Flutter", icon: "/assets/tech/flutter.svg", category: "Frameworks" },
         { name: "Flask", icon: "/assets/tech/flask.svg", category: "Frameworks", needsWhiteBg: true },
-        { name: "Tailwind", icon: "/assets/tech/tailwindCSS.png", category: "Frameworks" },
+        { name: "Tailwind", icon: "/assets/tech/TailwindCSS.png", category: "Frameworks" },
         { name: "Git", icon: "/assets/tech/Git.svg", category: "Tools" },
         { name: "VS Code", icon: "/assets/tech/vscode.svg", category: "Tools" },
         { name: "Figma", icon: "/assets/tech/Figma.svg", category: "Tools" },

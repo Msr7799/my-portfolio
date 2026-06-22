@@ -42,13 +42,13 @@ const images = [
     "/assets/tech/python.svg",
     "/assets/tech/react.svg",
     "/assets/tech/SQLite.svg",
-    "/assets/tech/tailwindCSS.png",
+    "/assets/tech/TailwindCSS.png",
     "/assets/tech/typescript.svg",
     "/assets/tech/vercel.svg",
     "/assets/tech/vscode.svg",
     "/assets/tech/Vite.svg",
-    "/assets/tech/kotlin.svg",
-    "/assets/tech/gradle.svg",
+    "/assets/tech/Kotlin.svg",
+    "/assets/tech/Gradle.svg",
 ];
 
 const facts = [
