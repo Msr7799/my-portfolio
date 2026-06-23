@@ -94,12 +94,12 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
     if (!isVisible) {
         return (
-            <div className="fixed inset-0 z-50 bg-black/80 transition-opacity duration-500 opacity-0 pointer-events-none" />
+            <div className="fixed inset-0 z-50 bg-[var(--background)]/80 transition-opacity duration-500 opacity-0 pointer-events-none" />
         );
     }
 
     return (
-        <div className="fixed inset-0 z-[100] bg-black/90 flex flex-col items-center justify-center">
+        <div className="fixed inset-0 z-[100] bg-[var(--background)]/95 flex flex-col items-center justify-center">
             {/* IconCloud - Always rendered immediately */}
             <div
                 className="relative flex items-center justify-center mb-8 scale-110 sm:scale-125 md:scale-150"
@@ -112,25 +112,25 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             <div className="w-full max-w-md px-8 mb-12">
                 <Progress value={progress}>
                     <div className="flex items-center justify-between mb-3">
-                        <ProgressLabel className="text-gray-400 text-xs uppercase tracking-wider">
+                        <ProgressLabel className="text-[var(--foreground-muted)] text-xs uppercase tracking-wider">
                             Loading Experience
                         </ProgressLabel>
-                        <ProgressValue className="text-purple-400 font-mono text-sm" />
+                        <ProgressValue className="text-[#EBF4DD] font-mono text-sm" />
                     </div>
                     <ProgressTrack
-                        className="h-1.5 bg-gray-800/80 border border-gray-700/50"
-                        indicatorClassName="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+                        className="h-1.5 bg-[var(--background-card)] border border-[var(--border-color)]"
+                        indicatorClassName="bg-gradient-to-r from-[#90AB8B] via-[#5A7863] to-[#EBF4DD]"
                     />
                 </Progress>
             </div>
 
             {/* Facts Area - with proper spacing from progress bar */}
             <div className="text-center max-w-md mx-auto px-4">
-                <p className="text-lg font-semibold text-gray-300 mb-3">Did you know?</p>
+                <p className="text-lg font-semibold text-[var(--foreground)] mb-3">Did you know?</p>
                 <div className="h-12 flex items-center justify-center">
                     <p
                         key={currentFact}
-                        className="text-sm text-gray-500 leading-relaxed animate-fade-in"
+                        className="text-sm text-[var(--foreground-subtle)] leading-relaxed animate-fade-in"
                     >
                         {facts[currentFact]}
                     </p>
@@ -139,5 +139,4 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         </div>
     );
 }
-
 

@@ -55,7 +55,7 @@ interface ProgressLabelProps {
 
 export function ProgressLabel({ className = "", children }: ProgressLabelProps) {
     return (
-        <span className={`text-sm font-medium text-gray-300 ${className}`}>
+        <span className={`text-sm font-medium text-[var(--foreground-muted)] ${className}`}>
             {children}
         </span>
     );
@@ -92,7 +92,7 @@ export function ProgressValue({
     }, [displayValue]);
 
     return (
-        <span className={`text-sm font-semibold text-white tabular-nums ${className}`}>
+        <span className={`text-sm font-semibold text-[var(--foreground)] tabular-nums ${className}`}>
             {displayNumber}{suffix}
         </span>
     );
@@ -115,10 +115,10 @@ export function ProgressTrack({
 
     return (
         <div
-            className={`relative h-2 w-full overflow-hidden rounded-full bg-gray-800/50 backdrop-blur-sm ${className}`}
+            className={`relative h-2 w-full overflow-hidden rounded-full bg-[var(--background-card)] backdrop-blur-sm ${className}`}
         >
             <motion.div
-                className={`h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 ${indicatorClassName}`}
+                className={`h-full rounded-full bg-gradient-to-r from-[#90AB8B] via-[#5A7863] to-[#EBF4DD] ${indicatorClassName}`}
                 initial={{ width: 0 }}
                 animate={{ width: `${percentage}%` }}
                 transition={{
@@ -126,7 +126,7 @@ export function ProgressTrack({
                     ...transition,
                 }}
                 style={{
-                    boxShadow: "0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3)",
+                    boxShadow: "0 0 20px rgba(235, 244, 221, 0.45), 0 0 40px rgba(59, 73, 83, 0.25)",
                 }}
             />
         </div>

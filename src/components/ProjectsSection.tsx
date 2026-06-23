@@ -179,10 +179,10 @@ export default function ProjectsSection() {
 
     // Project Card Component
     const ProjectCard = ({ project, isMobile = false }: { project: Project; isMobile?: boolean }) => (
-        <div className={`relative rounded-2xl overflow-hidden bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl transition-all duration-300 hover:border-[#667eea]/50 h-full flex flex-col ${isMobile ? 'min-w-[85%] snap-center' : ''}`}>
+        <div className={`relative rounded-2xl overflow-hidden bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl transition-all duration-300 hover:border-[#90AB8B]/50 h-full flex flex-col ${isMobile ? 'min-w-[85%] snap-center' : ''}`}>
             {/* Featured Badge */}
             {project.featured && (
-                <div className={`absolute top-3 ${isRTL ? "left-3" : "right-3"} z-10 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white text-[10px] font-medium shadow-lg`}>
+                <div className={`absolute top-3 ${isRTL ? "left-3" : "right-3"} z-10 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#90AB8B] to-[#5A7863] text-white text-[10px] font-medium shadow-lg`}>
                     ⭐ {t("featured")}
                 </div>
             )}
@@ -203,7 +203,7 @@ export default function ProjectsSection() {
                 </p>
                 <div className={`flex flex-wrap gap-2 mb-4 ${isRTL ? "justify-end" : "justify-start"}`}>
                     {project.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="px-3 py-1 rounded-full bg-[#667eea]/10 text-[#667eea] text-[10px] font-medium">{tag}</span>
+                        <span key={tag} className="px-3 py-1 rounded-full bg-[#90AB8B]/10 text-[#90AB8B] text-[10px] font-medium">{tag}</span>
                     ))}
                 </div>
 
@@ -213,7 +213,7 @@ export default function ProjectsSection() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white text-sm font-semibold hover:shadow-lg hover:shadow-[#667eea]/30 transition-shadow ${isRTL ? "flex-row-reverse" : ""}`}
+                        className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#90AB8B] to-[#5A7863] text-white text-sm font-semibold hover:shadow-lg hover:shadow-[#90AB8B]/30 transition-shadow ${isRTL ? "flex-row-reverse" : ""}`}
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -228,14 +228,14 @@ export default function ProjectsSection() {
     return (
         <section id="projects" className="relative py-16 sm:py-20 overflow-hidden">
             <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
-            <div className="absolute left-0 bottom-0 w-80 sm:w-[600px] h-80 sm:h-[600px] bg-gradient-to-tr from-[#667eea]/10 to-transparent blur-3xl pointer-events-none" />
+            <div className="absolute left-0 bottom-0 w-80 sm:w-[600px] h-80 sm:h-[600px] bg-gradient-to-tr from-[#90AB8B]/10 to-transparent blur-3xl pointer-events-none" />
 
             <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10" ref={ref}>
                 {/* Section Header */}
                 <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4 }} className="text-center mb-10">
-                    <span className="inline-block px-4 py-2 rounded-full bg-[#667eea]/10 text-[#667eea] text-xs font-medium mb-3">{t("myPortfolio")}</span>
+                    <span className="inline-block px-4 py-2 rounded-full bg-[#90AB8B]/10 text-[#90AB8B] text-xs font-medium mb-3">{t("myPortfolio")}</span>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-                        <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">{t("featuredProjects")}</span>
+                        <span className="bg-gradient-to-r from-[#90AB8B] to-[#5A7863] bg-clip-text text-transparent">{t("featuredProjects")}</span>
                     </h2>
                     <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto text-sm sm:text-base">{t("projectsDesc")}</p>
                 </motion.div>
@@ -247,8 +247,8 @@ export default function ProjectsSection() {
                             key={category}
                             onClick={() => setActiveFilter(categoryMap[category] || category)}
                             className={`px-5 py-2 rounded-full font-medium text-xs sm:text-sm transition-all ${activeFilter === (categoryMap[category] || category)
-                                ? "bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-lg shadow-[#667eea]/30"
-                                : "bg-[var(--background-glass)] text-[var(--foreground-muted)] border border-[var(--border-color)] hover:border-[#667eea]/50"
+                                ? "bg-gradient-to-r from-[#90AB8B] to-[#5A7863] text-white shadow-lg shadow-[#90AB8B]/30"
+                                : "bg-[var(--background-glass)] text-[var(--foreground-muted)] border border-[var(--border-color)] hover:border-[#90AB8B]/50"
                                 }`}
                         >
                             {category}
@@ -278,8 +278,8 @@ export default function ProjectsSection() {
                                 key={index}
                                 onClick={() => scrollToSlide(index)}
                                 className={`w-2 h-2 rounded-full transition-all ${activeSlide === index
-                                    ? 'w-6 bg-gradient-to-r from-[#667eea] to-[#764ba2]'
-                                    : 'bg-[var(--border-color)] hover:bg-[#667eea]/50'
+                                    ? 'w-6 bg-gradient-to-r from-[#90AB8B] to-[#5A7863]'
+                                    : 'bg-[var(--border-color)] hover:bg-[#90AB8B]/50'
                                     }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />
@@ -313,7 +313,7 @@ export default function ProjectsSection() {
                         href="https://github.com/MSR7799"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-flex items-center cursor-pointer gap-2 px-6 py-3 rounded-full border-2 border-[var(--border-color)] text-[var(--foreground)] font-medium hover:border-[#667eea] hover:bg-[#667eea]/10 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
+                        className={`inline-flex items-center cursor-pointer gap-2 px-6 py-3 rounded-full border-2 border-[var(--border-color)] text-[var(--foreground)] font-medium hover:border-[#90AB8B] hover:bg-[#90AB8B]/10 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
                     >
                         {t("viewMoreGithub")}
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
