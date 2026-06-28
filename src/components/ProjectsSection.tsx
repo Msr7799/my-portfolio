@@ -130,12 +130,48 @@ export default function ProjectsSection() {
             titleAr: "تطبيق شركة all weather",
             description: "A weather application built with modern web technologies providing comprehensive weather information and forecasts.",
             descriptionAr: "تطبيق طقس مبني بتقنيات الويب الحديثة يوفر معلومات وتوقعات جوية شاملة.",
-            image: "/assets/PROJECTS/All-Weather.png",
+            image: "/assets/PROJECTS/all-weather.png",
             tags: ["TypeScript", "React", "Next.js", "API", "Database"],
             category: "Web Apps",
             liveUrl: "https://all-weather-bh.vercel.app",
             featured: true
-        }
+        },
+        {
+            id: 10,
+            title: "world map 3D",
+            titleAr: "خريطة العالم 3D",
+            description: "A 3D world map application built with modern web technologies providing an immersive experience, and offers address and place maps from Google.",
+            descriptionAr: "تطبيق خريطة عالم 3D مبني بتقنيات الويب الحديثة يوفر تجربة غامرة ,و ويوفر خرائط العناوين والأماكن من قوقل ",
+            image: "/assets/PROJECTS/earth3d.png",
+            tags: ["Three.js", "React","Next.js", "TypeScript", "WebGL"],
+            category: "Web Apps",
+            liveUrl: "https://world-map-3-d.vercel.app",
+            featured: true
+        },
+        {
+            id: 11,
+            title: "Dalily Bahrain Website",
+            titleAr: "دليلي البحرين",   
+            description: "A website that enables you to find any location, place, or any shop or in Bahrain, based on the open data and data of the government of Bahrain.",
+            descriptionAr: "موقع دليلي البحرين يمكنك من خلالة إيجاد أي موقع أو مكان أو أي متجر أ في البحرين يعتمد على بيانات و API الداتا المفتوحة لحكومة البحرين.",
+            image: "/assets/PROJECTS/dalilybh.png",
+            tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "API"],
+            category: "Web Apps",
+            liveUrl: "https://dalilybh.vercel.app",
+            featured: true
+        },
+            {
+            id:12,
+            title: "Media Detector Pro - chrom extension",
+            titleAr: "اكستنشن متصفح كروم لستكشاف ولتحميل جميع أنواع الوسائط من الصفحات",
+            description: "Media Detector Pro is a powerful browser extension designed to detect and organize media files found on web pages, including videos, audio, images, and streaming sources. It helps users quickly inspect, preview, and download media assets from supported websites without manually inspecting page source or developer tools.",
+            descriptionAr: "اكستنشن متصفح كروم لستكشاف ولتحميل جميع أنواع الوسائط من الصفحات , هو أداة قوية مصممة لاكتشاف وتنظيم ملفات الوسائط الموجودة على صفحات الويب، بما في ذلك مقاطع الفيديو والصوت والصور ومصادر البث. يساعد المستخدمين على فحص معاينة وتنزيل أصول الوسائط بسرعة من المواقع المدعومة دون الحاجة إلى فحص مصادر الصفحة يدويًا أو أدوات المطور. ",
+            image: "/assets/PROJECTS/download-extantion.png",
+            tags: ["Chrome Extension", "JavaScript", "Vite", "Background Logic", "PopupUI", "React", "Downloads Manager"],
+            category: "Web Apps",
+            liveUrl: "https://github.com/Msr7799/media-downloder-pro",
+            featured: true
+        },
     ];
     const categories = [t("all"), t("webApps"), t("mobile"), t("api")];
     const categoryMap: Record<string, string> = {
