@@ -172,6 +172,18 @@ export default function ProjectsSection() {
             liveUrl: "https://github.com/Msr7799/media-downloder-pro",
             featured: true
         },
+            {
+                id: 13,
+                title: "Marbella Tan",
+                titleAr: "ماربيلا تان",
+                description: "Luxury tanning products website powered by Next.js, Tailwind CSS and modern React tooling. Curated tanning products for all skin types and multiple tanning shades; an elegant alternative to sunscreen cosmetics.",
+                descriptionAr: "منتجات تسمير فاخرة مصنوعة بعناية لجميع انواع البشرات وبدرجات تسمير مختلفة، وتغني عن مستحضرات الوقاية من الشمس.",
+                image: "/assets/PROJECTS/Merbella-Tan.png",
+                tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Firebase", "Zustand", "React Query", "Sonner", "Three.js", "motion", "E-commerce"],
+                category: "Web Apps",
+                liveUrl: "https://marbella-tan.vercel.app",
+                featured: true
+            },
     ];
     const categories = [t("all"), t("webApps"), t("mobile"), t("api")];
     const categoryMap: Record<string, string> = {
