@@ -53,18 +53,6 @@ export default function ProjectsSection() {
             featured: true
         },
         {
-            id: 4,
-            title: "Chat UI",
-            titleAr: "واجهة الدردشة الذكية",
-            description: "Modern chat interface with real-time messaging, AI integration, and beautiful glassmorphism design. Responsive and accessible.",
-            descriptionAr: "واجهة دردشة حديثة مع رسائل فورية، ودمج للذكاء الاصطناعي، وتصميم زجاجي جميل. متجاوبة وسهلة الوصول.",
-            image: "/assets/PROJECTS/ChatUI.png",
-            tags: ["SvelteKit", "WebSocket", "AI", "TailwindCSS"],
-            category: "Web Apps",
-            liveUrl: "https://chat-ui-nine-sooty.vercel.app/",
-            featured: false
-        },
-        {
             id: 5,
             title: "Collactions Platform",
             titleAr: "منصة Collactions",
