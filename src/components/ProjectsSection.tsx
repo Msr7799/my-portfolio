@@ -101,18 +101,6 @@ export default function ProjectsSection() {
             featured: false
         },
         {
-            id: 7,
-            title: "Chat App (Kotlin)",
-            titleAr: "تطبيق المحادثة (Kotlin)",
-            description: "A native Android chat application built with Kotlin featuring modern UI and smooth interactions.",
-            descriptionAr: "تطبيق دردشة أصلي لنظام أندرويد مبني باستخدام Kotlin يتميز بواجهة عصرية وتفاعلات سلسة.",
-            image: "/assets/PROJECTS/ChatUI-App.png",
-            tags: ["Kotlin", "Android", "Mobile", "XML"],
-            category: "Mobile",
-            liveUrl: "https://github.com/Msr7799/chat-ui-kotlin/blob/main/README.md",
-            featured: true
-        },
-        {
             id: 8,
             title: "Almuadhin (Kotlin , SwiftUI)",
             titleAr: "المؤذن (Kotlin , SwiftUI)",
