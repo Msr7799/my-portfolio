@@ -236,11 +236,11 @@ export default function WeatherWidget() {
                 onClick={() => setIsExpanded(!isExpanded)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:border-[#90AB8B]/50 transition-all cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}
+                className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:brightness-105`}
                 style={{ borderColor: `${severityColor}40` }}
             >
                 {/* Weather icon */}
-                <div className="relative w-6 h-6 sm:w-7 sm:h-7">
+                <div className="relative w-5 h-5 sm:w-7 sm:h-7">
                     <Image src={iconPath} alt="weather" fill className="object-contain" />
                 </div>
 
@@ -273,17 +273,22 @@ export default function WeatherWidget() {
                             onClick={() => setIsExpanded(false)}
                             className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden"
                         />
+
                         <motion.div
-                            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                            initial={{ opacity: 0, y: 10, scale: 0.98 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                            transition={{ duration: 0.2 }}
-                            className={`absolute top-full mt-2 z-50 w-[280px] sm:w-[320px] p-4 sm:p-5 rounded-2xl bg-[var(--background)]/95 border border-[var(--border-color)] backdrop-blur-xl shadow-2xl shadow-black/20 ${isRTL ? "right-0" : "left-0"}`}
+                            exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                            transition={{ duration: 0.18 }}
+                            // responsive: on large screens keep absolute dropdown; on small screens use fixed bottom sheet full-width
+                            className={`z-50 lg:absolute lg:top-full lg:mt-2 lg:w-[280px] lg:sm:w-[320px] p-4 sm:p-5 rounded-2xl bg-[var(--background)]/95 border border-[var(--border-color)] backdrop-blur-xl shadow-xl
+                                fixed left-4 right-4 bottom-4 max-h-[80vh] overflow-auto lg:relative lg:mx-0 lg:bottom-auto lg:left-auto lg:right-auto`}
+                            style={{ borderColor: 'var(--border-color)' }}
                         >
                             {/* Close button */}
                             <button
                                 onClick={() => setIsExpanded(false)}
-                                className={`absolute top-3 ${isRTL ? "left-3" : "right-3"} w-6 h-6 rounded-full bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors text-xs`}
+                                className={`absolute top-3 ${isRTL ? "left-3" : "right-3"} w-8 h-8 rounded-full bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-sm`}
+                                aria-label="Close weather panel"
                             >
                                 ✕
                             </button>
@@ -305,11 +310,11 @@ export default function WeatherWidget() {
                             </div>
 
                             {/* Details Grid */}
-                            <div className="grid grid-cols-2 gap-3 mb-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                                 {/* Wind Speed */}
                                 <div className={`p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] ${isRTL ? "text-right" : "text-left"}`}>
                                     <div className={`flex items-center gap-1.5 mb-1 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                        <Image src="/animated-wather-icons/wind.svg" alt="wind" width={32} height={32} />
+                                        <Image src="/animated-wather-icons/wind.svg" alt="wind" width={28} height={28} />
                                         <span className="text-[10px] text-[var(--foreground-subtle)]">{isRTL ? "الرياح" : "Wind"}</span>
                                     </div>
                                     <span className="text-sm font-bold text-[var(--foreground)]">
@@ -320,7 +325,7 @@ export default function WeatherWidget() {
                                 {/* Humidity */}
                                 <div className={`p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] ${isRTL ? "text-right" : "text-left"}`}>
                                     <div className={`flex items-center gap-1.5 mb-1 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                        <Image src="/animated-wather-icons/raindrop.svg" alt="humidity" width={32} height={32} />
+                                        <Image src="/animated-wather-icons/raindrop.svg" alt="humidity" width={28} height={28} />
                                         <span className="text-[10px] text-[var(--foreground-subtle)]">{isRTL ? "الرطوبة" : "Humidity"}</span>
                                     </div>
                                     <span className="text-sm font-bold text-[var(--foreground)]">
@@ -331,7 +336,7 @@ export default function WeatherWidget() {
                                 {/* Feels Like */}
                                 <div className={`p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] ${isRTL ? "text-right" : "text-left"}`}>
                                     <div className={`flex items-center gap-1.5 mb-1 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                        <Image src="/animated-wather-icons/thermometer.svg" alt="feels like" width={32} height={32} />
+                                        <Image src="/animated-wather-icons/thermometer.svg" alt="feels like" width={28} height={28} />
                                         <span className="text-[10px] text-[var(--foreground-subtle)]">{isRTL ? "الإحساس" : "Feels Like"}</span>
                                     </div>
                                     <span className="text-sm font-bold text-[var(--foreground)]">
@@ -342,7 +347,7 @@ export default function WeatherWidget() {
                                 {/* Visibility */}
                                 <div className={`p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] ${isRTL ? "text-right" : "text-left"}`}>
                                     <div className={`flex items-center gap-1.5 mb-1 ${isRTL ? "flex-row-reverse" : ""}`}>
-                                        <Image src="/animated-wather-icons/mist.svg" alt="visibility" width={32} height={32} />
+                                        <Image src="/animated-wather-icons/mist.svg" alt="visibility" width={28} height={28} />
                                         <span className="text-[10px] text-[var(--foreground-subtle)]">{isRTL ? "الرؤية" : "Visibility"}</span>
                                     </div>
                                     <span className="text-sm font-bold text-[var(--foreground)]">
