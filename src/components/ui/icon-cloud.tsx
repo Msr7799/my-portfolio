@@ -375,7 +375,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
                         // Show numbered circles if no icons/images are provided
                         ctx.beginPath()
                         ctx.arc(0, 0, 20, 0, Math.PI * 2)
-                        ctx.fillStyle = "#4444ff"
+                        ctx.fillStyle = "#B32626"
                         ctx.fill()
                         ctx.fillStyle = "white"
                         ctx.textAlign = "center"

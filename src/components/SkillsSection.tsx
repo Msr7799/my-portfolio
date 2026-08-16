@@ -78,14 +78,14 @@ export default function SkillsSection() {
     return (
         <section id="skills" className="relative py-16 sm:py-20 overflow-hidden">
             <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
-            <div className="absolute right-0 top-1/3 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-gradient-to-l from-[#5A7863]/10 to-transparent blur-3xl pointer-events-none" />
+            <div className="absolute right-0 top-1/3 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-gradient-to-l from-[#771111]/10 to-transparent blur-3xl pointer-events-none" />
 
             <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10" ref={ref}>
                 {/* Section Header */}
                 <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4 }} className="text-center mb-10">
-                    <span className="inline-block px-4 py-2 rounded-full bg-[#90AB8B]/10 text-[#90AB8B] text-xs font-medium mb-3">{t("skillsAndTech")}</span>
+                    <span className="theme-accent-label inline-block px-4 py-2 rounded-full bg-[#B32626]/10 text-xs font-medium mb-3">{t("skillsAndTech")}</span>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-                        <span className="bg-gradient-to-r from-[#90AB8B] to-[#5A7863] bg-clip-text text-transparent">{t("myTechStack")}</span>
+                        <span className="section-heading-text">{t("myTechStack")}</span>
                     </h2>
                     <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto text-sm sm:text-base">{t("techStackDesc")}</p>
                 </motion.div>
@@ -111,7 +111,7 @@ export default function SkillsSection() {
                                 <motion.div
                                     key={tech.name}
                                     variants={itemVariants}
-                                    className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-sm hover:border-[#90AB8B]/50 hover:bg-[var(--background-card)] transition-colors duration-200 cursor-pointer"
+                                    className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-sm hover:border-[#B32626]/50 hover:bg-[var(--background-card)] transition-colors duration-200 cursor-pointer"
                                 >
                                     <div className={`relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center ${tech.needsWhiteBg ? 'bg-white/80 rounded-xl p-0.5' : ''}`}>
                                         <Image src={tech.icon} alt={tech.name} width={80} height={80} className="object-contain" />
@@ -128,7 +128,7 @@ export default function SkillsSection() {
                     {/* Technical Skills */}
                     <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.1 }} className="p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                         <h3 className={`text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-6 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
-                            <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#90AB8B] to-[#5A7863] flex items-center justify-center">
+                            <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#771111] via-[#922020] to-[#B93232] flex items-center justify-center">
                                 <Settings className="w-5 h-5 text-white" />
                             </span>
                             {t("technicalSkills")}
@@ -138,14 +138,14 @@ export default function SkillsSection() {
                                 <div key={skill.name}>
                                     <div className={`flex justify-between mb-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                                         <span className="text-[var(--foreground)] font-medium text-sm sm:text-base">{skill.name}</span>
-                                        <span className="text-[#90AB8B] font-semibold text-sm sm:text-base">{skill.level}%</span>
+                                        <span className="text-[#B32626] font-semibold text-sm sm:text-base">{skill.level}%</span>
                                     </div>
                                     <div className="h-2.5 bg-[var(--background-card)] rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
                                             animate={isInView ? { width: `${skill.level}%` } : {}}
                                             transition={{ duration: 0.6, delay: 0.1 + index * 0.05, ease: "easeOut" }}
-                                            className="h-full rounded-full bg-gradient-to-r from-[#90AB8B] to-[#5A7863]"
+                                            className="h-full rounded-full bg-gradient-to-r from-[#B32626] to-[#771111]"
                                         />
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@ export default function SkillsSection() {
                     {/* Soft Skills */}
                     <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.2 }} className="p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                         <h3 className={`text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-6 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
-                            <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5A7863] to-[#EBF4DD] flex items-center justify-center">
+                            <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#771111] via-[#922020] to-[#B93232] flex items-center justify-center">
                                 <Target className="w-5 h-5 text-white" />
                             </span>
                             {t("softSkills")}
@@ -165,9 +165,9 @@ export default function SkillsSection() {
                             {softSkills.map((skill) => (
                                 <div
                                     key={skill.name}
-                                    className={`flex items-center gap-3 p-3 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] hover:border-[#5A7863]/50 transition-colors cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}
+                                    className={`flex items-center gap-3 p-3 rounded-xl bg-[var(--background-card)] border border-[var(--border-color)] hover:border-[#771111]/50 transition-colors cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}
                                 >
-                                    <skill.icon className="w-5 h-5 text-[#90AB8B]" />
+                                    <skill.icon className="w-5 h-5 text-[#B32626]" />
                                     <span className="text-[var(--foreground)] font-medium text-xs sm:text-sm">{skill.name}</span>
                                 </div>
                             ))}
@@ -178,16 +178,16 @@ export default function SkillsSection() {
                 {/* Expertise Areas */}
                 <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.4, delay: 0.3 }} className="mt-8 p-5 sm:p-6 rounded-2xl bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl">
                     <h3 className={`text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-4 text-center flex items-center justify-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
-                        <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EBF4DD] to-[#90AB8B] flex items-center justify-center">
+                        <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#771111] via-[#922020] to-[#B93232] flex items-center justify-center">
                             <Rocket className="w-5 h-5 text-white" />
                         </span>
                         {t("expertiseAreas")}
                     </h3>
                     <p className="text-[var(--foreground-muted)] text-center leading-relaxed max-w-4xl mx-auto text-sm sm:text-base">
                         {isRTL ? (
-                            <>الأمن السيبراني وأمن الشبكات، بناء برامج ومواقع Full-Stack باستخدام <span className="text-[#90AB8B] font-medium">React، TypeScript، Next.js</span>، المتحررة في Python، JavaScript، React، Flask، و Flutter. متقن على <span className="text-[#5A7863] font-medium">Linux و PowerShell</span>. إدارة النظم، أتمتة العمليات، تطوير الويب، و<span className="text-[#EBF4DD] font-medium">هندسة البرمجيات</span>.</>
+                            <>الأمن السيبراني وأمن الشبكات، بناء برامج ومواقع Full-Stack باستخدام <span className="skills-highlight-text font-medium">React، TypeScript، Next.js</span>، المتحررة في Python، JavaScript، React، Flask، و Flutter. متقن على <span className="skills-highlight-text font-medium">Linux و PowerShell</span>. إدارة النظم، أتمتة العمليات، تطوير الويب، و<span className="text-[#F8FAFC] font-medium">هندسة البرمجيات</span>.</>
                         ) : (
-                            <>Cybersecurity & Network Security. Building modern Full-Stack websites and apps using <span className="text-[#90AB8B] font-medium">React, TypeScript, Next.js</span>. Proficient in Python, JavaScript, React, Flask, and Flutter. Fluency in <span className="text-[#5A7863] font-medium">Linux & PowerShell</span>. System administration and process automation. Web development using smart algorithms, and <span className="text-[#EBF4DD] font-medium">prompt engineering</span>.</>
+                            <>Cybersecurity & Network Security. Building modern Full-Stack websites and apps using <span className="skills-highlight-text font-medium">React, TypeScript, Next.js</span>. Proficient in Python, JavaScript, React, Flask, and Flutter. Fluency in <span className="skills-highlight-text font-medium">Linux & PowerShell</span>. System administration and process automation. Web development using smart algorithms, and <span className="text-[#F8FAFC] font-medium">prompt engineering</span>.</>
                         )}
                     </p>
                 </motion.div>

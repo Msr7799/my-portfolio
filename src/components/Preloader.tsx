@@ -115,11 +115,11 @@ export default function Preloader({ onComplete }: PreloaderProps) {
                         <ProgressLabel className="text-[var(--foreground-muted)] text-xs uppercase tracking-wider">
                             Loading Experience
                         </ProgressLabel>
-                        <ProgressValue className="text-[#EBF4DD] font-mono text-sm" />
+                        <ProgressValue className="text-[#F8FAFC] font-mono text-sm" />
                     </div>
                     <ProgressTrack
                         className="h-1.5 bg-[var(--background-card)] border border-[var(--border-color)]"
-                        indicatorClassName="bg-gradient-to-r from-[#90AB8B] via-[#5A7863] to-[#EBF4DD]"
+                        indicatorClassName="bg-gradient-to-r from-[#B32626] via-[#771111] to-[#F8FAFC]"
                     />
                 </Progress>
             </div>

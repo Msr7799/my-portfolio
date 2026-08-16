@@ -17,7 +17,7 @@ interface SparklesProps {
 export default function Sparkles({
     id = "sparkles",
     className = "",
-    particleColor = "#90AB8B",
+    particleColor = "#B32626",
     particleSize = 2,
     particleDensity = 100,
     speed = 1,
@@ -145,7 +145,7 @@ export function ShimmerButton({
             onClick={onClick}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`relative overflow-hidden px-6 py-3 font-semibold text-white bg-gradient-to-r from-[#90AB8B] to-[#5A7863] ${className}`}
+            className={`relative overflow-hidden px-6 py-3 font-semibold text-white bg-gradient-to-r from-[#B32626] to-[#771111] ${className}`}
             style={{ borderRadius }}
         >
             {/* Shimmer overlay */}
@@ -171,7 +171,7 @@ export function AnimatedShinyText({
 }) {
     return (
         <span
-            className={`inline-block animate-shimmer bg-gradient-to-r from-[--foreground] via-[#90AB8B] to-[--foreground] bg-[length:200%_100%] bg-clip-text text-transparent ${className}`}
+            className={`inline-block animate-shimmer bg-gradient-to-r from-[--foreground] via-[#B32626] to-[--foreground] bg-[length:200%_100%] bg-clip-text text-transparent ${className}`}
         >
             {children}
         </span>
@@ -183,8 +183,8 @@ export function BorderBeam({
     size = 200,
     duration = 12,
     borderWidth = 1.5,
-    colorFrom = "#90AB8B",
-    colorTo = "#5A7863",
+    colorFrom = "#B32626",
+    colorTo = "#771111",
     className = "",
 }: {
     size?: number;

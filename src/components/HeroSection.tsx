@@ -26,7 +26,7 @@ export default function HeroSection() {
     const iconImageSize = isMobile ? "w-8 h-8" : "w-10 h-10";
 
     useEffect(() => {
-        setMounted(true);
+        const mountedTimer = window.setTimeout(() => setMounted(true), 0);
 
         const handleResize = () => {
             if (window.innerWidth < 380) setOrbitRadius(118);
@@ -37,7 +37,10 @@ export default function HeroSection() {
 
         handleResize();
         window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        return () => {
+            window.clearTimeout(mountedTimer);
+            window.removeEventListener("resize", handleResize);
+        };
     }, []);
 
     useEffect(() => {
@@ -75,16 +78,10 @@ export default function HeroSection() {
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
             {/* Background Effects */}
-            <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    background:
-                        "linear-gradient(135deg, rgba(59,73,83,0.68) 0%, rgba(55,79,82,0.44) 46%, rgba(90,120,99,0.28) 100%), radial-gradient(circle at 72% 42%, rgba(235,244,221,0.14), transparent 30%), radial-gradient(circle at 18% 28%, rgba(144,171,139,0.16), transparent 28%)",
-                }}
-            />
+            <div className="hero-surface absolute inset-0 pointer-events-none" />
             <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[600px] bg-gradient-to-br from-[#EBF4DD]/16 via-[#90AB8B]/14 to-transparent blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-to-tl from-[#90AB8B]/18 to-transparent blur-3xl pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[600px] bg-gradient-to-br from-[#F8FAFC]/16 via-[#B32626]/14 to-transparent blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-to-tl from-[#B32626]/18 to-transparent blur-3xl pointer-events-none" />
 
             {/* Floating Orbs */}
             {shouldRunAmbientMotion && (
@@ -92,17 +89,17 @@ export default function HeroSection() {
                     <motion.div
                         animate={{ y: [0, -30, 0], x: [0, 15, 0] }}
                         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#90AB8B] blur-sm pointer-events-none"
+                        className="absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#B32626] blur-sm pointer-events-none"
                     />
                     <motion.div
                         animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#5A7863] blur-sm pointer-events-none"
+                        className="absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#771111] blur-sm pointer-events-none"
                     />
                     <motion.div
                         animate={{ y: [0, -20, 0] }}
                         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#EBF4DD] blur-sm pointer-events-none"
+                        className="absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#F8FAFC] blur-sm pointer-events-none"
                     />
                 </>
             )}
@@ -143,16 +140,16 @@ export default function HeroSection() {
                             transition={{ delay: 0.4 }}
                             className="text-xl sm:text-2xl md:text-3xl text-[var(--foreground-muted)] mb-6 h-10"
                         >
-                            <span className="text-[#90AB8B]">&lt;</span>
+                            <span className="text-[#B32626]">&lt;</span>
                             <span className="text-[var(--foreground)]">{displayText}</span>
                             <motion.span
                                 animate={{ opacity: [1, 0] }}
                                 transition={{ duration: 0.5, repeat: Infinity }}
-                                className="text-[#90AB8B]"
+                                className="text-[#B32626]"
                             >
                                 |
                             </motion.span>
-                            <span className="text-[#90AB8B]"> /&gt;</span>
+                            <span className="text-[#B32626]"> /&gt;</span>
                         </motion.div>
 
                         <motion.p
@@ -172,7 +169,7 @@ export default function HeroSection() {
                         >
                             <a
                                 href="#projects"
-                                className={`group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#5A7863] to-[#90AB8B] text-[#EBF4DD] font-semibold overflow-hidden transition-all hover:shadow-lg hover:shadow-[#90AB8B]/30 ${isRTL ? "flex-row-reverse" : ""}`}
+                                className={`group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#771111] to-[#B32626] text-[#F8FAFC] font-semibold overflow-hidden transition-all hover:shadow-lg hover:shadow-[#B32626]/30 ${isRTL ? "flex-row-reverse" : ""}`}
                             >
                                 <span className="relative z-10">{t("viewMyWork")}</span>
                                 <svg
@@ -186,7 +183,7 @@ export default function HeroSection() {
                             </a>
                             <a
                                 href="#contact"
-                                className={`inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-[var(--border-color)] text-[var(--foreground)] font-semibold transition-all hover:border-[#90AB8B] hover:bg-[#90AB8B]/10 ${isRTL ? "flex-row-reverse" : ""}`}
+                                className={`inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-[var(--border-color)] text-[var(--foreground)] font-semibold transition-all hover:border-[#B32626] hover:bg-[#B32626]/10 ${isRTL ? "flex-row-reverse" : ""}`}
                             >
                                 <span>{t("contactMe")}</span>
                             </a>
@@ -221,14 +218,14 @@ export default function HeroSection() {
                         {/* Hero Image Container */}
                         <div className="relative hero-image w-[260px] h-[260px] min-[380px]:w-[280px] min-[380px]:h-[280px] sm:w-[320px] sm:h-[320px] md:w-[340px] md:h-[340px]">
                             {/* Glow Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#90AB8B] to-[#5A7863] rounded-full blur-3xl opacity-30 scale-110" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#B32626] to-[#771111] rounded-full blur-3xl opacity-30 scale-110" />
 
                             {/* Rotating Border */}
                             <motion.div
                                 animate={shouldRunOrbitMotion ? { rotate: 360 } : { rotate: 0 }}
                                 transition={{ duration: isMobile ? 32 : 20, repeat: shouldRunOrbitMotion ? Infinity : 0, ease: "linear" }}
                                 className="absolute -inset-4 rounded-full"
-                                style={{ background: `conic-gradient(from 0deg, #90AB8B, #5A7863, #3B4953, #EBF4DD, #90AB8B)`, padding: "3px" }}
+                                style={{ background: `conic-gradient(from 0deg, #B32626, #771111, #05060A, #F8FAFC, #B32626)`, padding: "3px" }}
                             >
                                 <div className="w-full h-full rounded-full bg-[var(--background)]" />
                             </motion.div>
@@ -308,7 +305,7 @@ export default function HeroSection() {
                     <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="flex flex-col items-center gap-3">
                         <span className="text-sm text-[var(--foreground-subtle)]">{t("scrollDown")}</span>
                         <div className="w-6 h-10 rounded-full border-2 border-[var(--border-color)] flex items-start justify-center p-2">
-                            <motion.div animate={{ y: [0, 12, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-[#90AB8B]" />
+                            <motion.div animate={{ y: [0, 12, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-[#B32626]" />
                         </div>
                     </motion.div>
                 </motion.div>

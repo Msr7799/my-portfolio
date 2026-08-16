@@ -118,7 +118,7 @@ export function ProgressTrack({
             className={`relative h-2 w-full overflow-hidden rounded-full bg-[var(--background-card)] backdrop-blur-sm ${className}`}
         >
             <motion.div
-                className={`h-full rounded-full bg-gradient-to-r from-[#90AB8B] via-[#5A7863] to-[#EBF4DD] ${indicatorClassName}`}
+                className={`h-full rounded-full bg-gradient-to-r from-[#B32626] via-[#771111] to-[#F8FAFC] ${indicatorClassName}`}
                 initial={{ width: 0 }}
                 animate={{ width: `${percentage}%` }}
                 transition={{
@@ -126,7 +126,7 @@ export function ProgressTrack({
                     ...transition,
                 }}
                 style={{
-                    boxShadow: "0 0 20px rgba(235, 244, 221, 0.45), 0 0 40px rgba(59, 73, 83, 0.25)",
+                    boxShadow: "0 0 20px rgba(179, 38, 38, 0.4), 0 0 40px rgba(119, 17, 17, 0.24)",
                 }}
             />
         </div>

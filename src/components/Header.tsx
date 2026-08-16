@@ -53,7 +53,7 @@ export default function Header() {
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl">
               <Image src="/portfolio-logo.svg" alt="Mohamed Alromaihi Logo" fill className="object-contain" priority />
             </div>
-            <span className="hidden sm:block text-base sm:text-lg font-bold theme-brand-text">
+            <span className="header-brand-name hidden sm:block text-base sm:text-lg font-bold">
               {isRTL ? "محمد الرميحي" : "Mohamed Alromaihi"}
             </span>
           </Link>
@@ -76,7 +76,7 @@ export default function Header() {
                 {activeSection === item.href.replace("#", "") && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#5A7863] to-[#90AB8B]"
+                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#771111] via-[#922020] to-[#B93232] shadow-lg shadow-[#771111]/25"
                     transition={{ type: "spring", duration: 0.6 }}
                   />
                 )}
@@ -94,7 +94,7 @@ export default function Header() {
             onClick={toggleLanguage}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 p-0 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-sm font-bold hover:border-[#90AB8B]/50 transition-all"
+            className="w-10 h-10 p-0 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center text-sm font-bold hover:border-[#B32626]/50 transition-all"
           >
             {language === "en" ? "ع" : "EN"}
           </motion.button>
@@ -104,14 +104,14 @@ export default function Header() {
             onClick={toggleTheme}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 p-0 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center hover:border-[#90AB8B]/50 transition-all"
+            className="w-10 h-10 p-0 rounded-xl bg-[var(--background-glass)] border border-[var(--border-color)] flex items-center justify-center hover:border-[#B32626]/50 transition-all"
           >
             {theme === "dark" ? (
               <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
               </svg>
             ) : (
-              <svg className="w-5 h-5 text-[#90AB8B]" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-[#B32626]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
               </svg>
             )}
@@ -123,7 +123,7 @@ export default function Header() {
             download
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#5A7863] to-[#90AB8B] text-[#EBF4DD] font-medium text-sm shadow-lg shadow-[#3B4953]/20"
+            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#771111] via-[#922020] to-[#B93232] text-white font-medium text-sm shadow-lg shadow-[#771111]/30 hover:shadow-[#B93232]/35 transition-shadow"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -158,7 +158,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-lg font-medium transition-all ${activeSection === item.href.replace("#", "") ? "bg-gradient-to-r from-[#5A7863] to-[#90AB8B] text-[#EBF4DD]" : "text-[var(--foreground-muted)] hover:bg-[var(--background-glass)]"
+                    className={`block px-4 py-3 rounded-lg font-medium transition-all ${activeSection === item.href.replace("#", "") ? "bg-gradient-to-r from-[#771111] via-[#922020] to-[#B93232] text-white" : "text-[var(--foreground-muted)] hover:bg-[var(--background-glass)]"
                       }`}
                   >
                     {item.name}
@@ -171,7 +171,7 @@ export default function Header() {
                 initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center justify-center gap-2 mt-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#5A7863] to-[#90AB8B] text-[#EBF4DD] font-medium"
+                className="flex items-center justify-center gap-2 mt-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#771111] via-[#922020] to-[#B93232] text-white font-medium shadow-lg shadow-[#771111]/25"
               >
                 <FileText className="w-5 h-5" /> {t("downloadCV")}
               </motion.a>

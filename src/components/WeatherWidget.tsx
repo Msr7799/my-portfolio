@@ -236,7 +236,7 @@ export default function WeatherWidget() {
                 onClick={() => setIsExpanded(!isExpanded)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:border-[#90AB8B]/50 transition-all cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}
+                className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[var(--background-glass)] border border-[var(--border-color)] backdrop-blur-xl hover:border-[#B32626]/50 transition-all cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}
                 style={{ borderColor: `${severityColor}40` }}
             >
                 {/* Weather icon */}
