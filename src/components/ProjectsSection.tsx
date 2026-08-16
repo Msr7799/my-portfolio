@@ -160,6 +160,54 @@ export default function ProjectsSection() {
                 liveUrl: "https://marbella-tan.vercel.app",
                 featured: true
             },
+        {
+            id: 14,
+            title: "Dream Interpretation RAG System",
+            titleAr: "نظام تفسير الأحلام الذكي",
+            description: "An Arabic dream interpretation platform that searches trusted Islamic sources and uses AI to generate answers grounded in retrieved excerpts.",
+            descriptionAr: "منصة عربية لتفسير الأحلام تبحث في مصادر إسلامية موثوقة وتستخدم الذكاء الاصطناعي لصياغة إجابات مستندة إلى النصوص المسترجعة.",
+            image: "/assets/PROJECTS/tafseer-ala7lam.png",
+            tags: ["Next.js", "TypeScript", "Firebase", "AI", "RAG"],
+            category: "Web Apps",
+            liveUrl: "https://tafseer-ala7lam.vercel.app/",
+            featured: true
+        },
+        {
+            id: 15,
+            title: "Brick Breaker Ball",
+            titleAr: "لعبة تحطيم الطوب",
+            description: "A native Android brick-breaker game built with Kotlin and LibGDX, featuring sprite-based gameplay, paddle controls, and progressive levels.",
+            descriptionAr: "لعبة أندرويد أصلية لتحطيم الطوب مبنية باستخدام Kotlin وLibGDX، وتتميز برسومات متحركة وتحكم سلس ومستويات متدرجة.",
+            image: "/assets/PROJECTS/BrickBreakerBall.png",
+            tags: ["Kotlin", "LibGDX", "Android", "Game"],
+            category: "Mobile",
+            githubUrl: "https://github.com/Msr7799/Brick_Breaker_GAME",
+            featured: true
+        },
+        {
+            id: 16,
+            title: "Advanced Casio-Style Calculator",
+            titleAr: "آلة حاسبة علمية متقدمة",
+            description: "An interactive graphing and scientific calculator with tools for equations, matrices, statistics, tables, and in-browser Python execution.",
+            descriptionAr: "آلة حاسبة علمية ورسومية تفاعلية تضم أدوات للمعادلات والمصفوفات والإحصاء والجداول وتشغيل Python داخل المتصفح.",
+            image: "/assets/PROJECTS/advanced-calculator.png",
+            tags: ["Next.js", "React", "TypeScript", "Pyodide"],
+            category: "Web Apps",
+            liveUrl: "https://advanced-calculator-casio.vercel.app/",
+            featured: true
+        },
+        {
+            id: 17,
+            title: "World Clock",
+            titleAr: "الساعة العالمية",
+            description: "A responsive time-zone dashboard for tracking live clocks across countries and capital cities, with light and dark themes.",
+            descriptionAr: "لوحة متجاوبة للمناطق الزمنية تتيح متابعة الساعات الحية في الدول والعواصم، مع الوضعين الفاتح والداكن.",
+            image: "/assets/PROJECTS/World-Clock.png",
+            tags: ["React", "Vite", "Tailwind CSS", "Time Zones"],
+            category: "Web Apps",
+            liveUrl: "https://world-clock-real-time.vercel.app/",
+            featured: true
+        },
     ];
     const categories = [t("all"), t("webApps"), t("mobile"), t("api")];
     const categoryMap: Record<string, string> = {
@@ -231,20 +279,35 @@ export default function ProjectsSection() {
                     ))}
                 </div>
 
-                {/* View Demo Button */}
-                {project.liveUrl && (
-                    <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#90AB8B] to-[#5A7863] text-white text-sm font-semibold hover:shadow-lg hover:shadow-[#90AB8B]/30 transition-shadow ${isRTL ? "flex-row-reverse" : ""}`}
-                    >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        {t("liveDemo")}
-                    </a>
-                )}
+                {/* Project Links */}
+                <div className="flex gap-2">
+                    {project.liveUrl && (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex flex-1 items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#90AB8B] to-[#5A7863] text-white text-sm font-semibold hover:shadow-lg hover:shadow-[#90AB8B]/30 transition-shadow ${isRTL ? "flex-row-reverse" : ""}`}
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            {t("liveDemo")}
+                        </a>
+                    )}
+                    {project.githubUrl && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex flex-1 items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#90AB8B]/50 text-[var(--foreground)] text-sm font-semibold hover:bg-[#90AB8B]/10 transition-colors ${isRTL ? "flex-row-reverse" : ""}`}
+                        >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 6.84c1.02 0 2.05.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.57A12 12 0 0012 0z" />
+                            </svg>
+                            {isRTL ? "الكود المصدري" : "Source Code"}
+                        </a>
+                    )}
+                </div>
             </div>
         </div>
     );
