@@ -159,8 +159,8 @@
 }
 
 [data-theme="light"] {
-  --background: #fff8f9;
-  --background-secondary: #fff1f2;
+  --background: #faf8f3;
+  --background-secondary: #f5f1e8;
   --background-card: rgba(255, 255, 255, 0.82);
   --background-glass: rgba(255, 255, 255, 0.68);
   --foreground: #2b0b16;
@@ -249,10 +249,10 @@ body {
 
 [data-theme="light"] body {
   background:
-    radial-gradient(circle at 8% 8%, rgba(179, 38, 38, 0.2), transparent 30%),
-    radial-gradient(circle at 88% 14%, rgba(119, 17, 17, 0.2), transparent 34%),
-    radial-gradient(circle at 50% 95%, rgba(179, 38, 38, 0.1), transparent 34%),
-    linear-gradient(145deg, #ffffff 0%, #fff8f9 42%, #fff1f2 72%, #fce7f3 100%);
+    radial-gradient(circle at 8% 8%, rgba(255, 255, 255, 0.92), transparent 30%),
+    radial-gradient(circle at 88% 14%, rgba(235, 228, 215, 0.58), transparent 34%),
+    radial-gradient(circle at 50% 95%, rgba(255, 252, 245, 0.72), transparent 34%),
+    linear-gradient(145deg, #fffdf8 0%, #faf8f3 42%, #f7f3eb 72%, #f3ede3 100%);
 }
 
 /* Give anchored sections some breathing room under the fixed header */
@@ -298,9 +298,9 @@ h6 {
 
 [data-theme="light"] .hero-surface {
   background:
-    radial-gradient(circle at 72% 38%, rgba(119, 17, 17, 0.16), transparent 32%),
-    radial-gradient(circle at 18% 24%, rgba(179, 38, 38, 0.18), transparent 30%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(255, 241, 242, 0.2));
+    radial-gradient(circle at 72% 38%, rgba(232, 224, 210, 0.48), transparent 32%),
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.68), transparent 30%),
+    linear-gradient(135deg, rgba(255, 253, 248, 0.5), rgba(245, 241, 232, 0.28));
 }
 
 [dir="rtl"] h1,
