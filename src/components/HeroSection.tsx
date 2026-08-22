@@ -222,7 +222,8 @@ export default function HeroSection() {
                                     alt={language === "ar" ? "رمز QR لمعرض الأعمال" : "Portfolio website QR code"}
                                     width={1000}
                                     height={1000}
-                                    className="absolute left-1/2 top-0 h-auto w-[135%] max-w-none -translate-x-1/2"
+                                    className="absolute left-1/2 top-0 -translate-x-1/2"
+                                    style={{ width: "135%", maxWidth: "none", height: "auto" }}
                                 />
                             </div>
                         </div>
