@@ -215,14 +215,16 @@ export default function HeroSection() {
                         transition={{ duration: 0.7, delay: 0.45 }}
                         className="flex w-full shrink-0 flex-col items-center gap-4 lg:w-[190px]"
                     >
-                        <div className="relative h-[160px] w-[160px] overflow-hidden rounded-[28px] border border-[var(--border-color)] bg-white p-2 shadow-[0_20px_55px_rgba(179,38,38,0.22)] sm:h-[180px] sm:w-[180px] lg:h-[190px] lg:w-[190px]">
-                            <Image
-                                src="/assets/qrcode.png"
-                                alt={language === "ar" ? "رمز QR لمعرض الأعمال" : "Portfolio website QR code"}
-                                width={1000}
-                                height={1000}
-                                className="max-w-none h-auto w-[135%] -translate-x-[13.5%] -translate-y-[1%]"
-                            />
+                        <div className="relative h-[160px] w-[160px] overflow-hidden rounded-[24px] border border-[#B32626]/35 bg-white p-2 shadow-[0_20px_55px_rgba(179,38,38,0.22)] sm:h-[180px] sm:w-[180px] lg:h-[190px] lg:w-[190px]">
+                            <div className="relative h-full w-full overflow-hidden rounded-[16px] bg-white">
+                                <Image
+                                    src="/assets/qrcode.png"
+                                    alt={language === "ar" ? "رمز QR لمعرض الأعمال" : "Portfolio website QR code"}
+                                    width={1000}
+                                    height={1000}
+                                    className="absolute left-1/2 top-0 h-auto w-[135%] max-w-none -translate-x-1/2"
+                                />
+                            </div>
                         </div>
                         <p className="rounded-2xl border border-[var(--border-color)] bg-[var(--background-glass)] px-5 py-2.5 text-center text-xs font-semibold uppercase leading-relaxed tracking-[0.12em] text-[var(--foreground-muted)] shadow-lg backdrop-blur-md sm:text-sm">
                             {language === "ar" ? (
