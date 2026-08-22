@@ -80,8 +80,8 @@ export default function HeroSection() {
             {/* Background Effects */}
             <div className="hero-surface absolute inset-0 pointer-events-none" />
             <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[600px] bg-gradient-to-br from-[#F8FAFC]/16 via-[#B32626]/14 to-transparent blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-to-tl from-[#B32626]/18 to-transparent blur-3xl pointer-events-none" />
+            <div className="hero-accent-glow absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[600px] bg-gradient-to-br from-[#F8FAFC]/16 via-[#B32626]/14 to-transparent blur-3xl pointer-events-none" />
+            <div className="hero-accent-glow absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-to-tl from-[#B32626]/18 to-transparent blur-3xl pointer-events-none" />
 
             {/* Floating Orbs */}
             {shouldRunAmbientMotion && (
@@ -89,17 +89,17 @@ export default function HeroSection() {
                     <motion.div
                         animate={{ y: [0, -30, 0], x: [0, 15, 0] }}
                         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#B32626] blur-sm pointer-events-none"
+                        className="hero-floating-orb absolute top-32 left-10 sm:left-20 w-3 h-3 rounded-full bg-[#B32626] blur-sm pointer-events-none"
                     />
                     <motion.div
                         animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#771111] blur-sm pointer-events-none"
+                        className="hero-floating-orb absolute top-48 right-16 sm:right-32 w-4 h-4 rounded-full bg-[#771111] blur-sm pointer-events-none"
                     />
                     <motion.div
                         animate={{ y: [0, -20, 0] }}
                         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#F8FAFC] blur-sm pointer-events-none"
+                        className="hero-floating-orb absolute bottom-48 left-1/4 w-2 h-2 rounded-full bg-[#F8FAFC] blur-sm pointer-events-none"
                     />
                 </>
             )}
@@ -111,7 +111,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className={`flex-1 text-center ${isRTL ? "lg:text-right" : "lg:text-left"}`}
+                        className={`hero-text-content flex-1 text-center ${isRTL ? "lg:text-right" : "lg:text-left"}`}
                     >
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -246,7 +246,7 @@ export default function HeroSection() {
                         {/* Hero Image Container */}
                         <div className="relative hero-image w-[260px] h-[260px] min-[380px]:w-[280px] min-[380px]:h-[280px] sm:w-[320px] sm:h-[320px] md:w-[340px] md:h-[340px]">
                             {/* Glow Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#B32626] to-[#771111] rounded-full blur-3xl opacity-30 scale-110" />
+                            <div className="hero-portrait-glow absolute inset-0 bg-gradient-to-br from-[#B32626] to-[#771111] rounded-full blur-3xl opacity-30 scale-110" />
 
                             {/* Rotating Border */}
                             <motion.div

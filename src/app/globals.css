@@ -297,10 +297,19 @@ h6 {
 }
 
 [data-theme="light"] .hero-surface {
-  background:
-    radial-gradient(circle at 72% 38%, rgba(232, 224, 210, 0.48), transparent 32%),
-    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.68), transparent 30%),
-    linear-gradient(135deg, rgba(255, 253, 248, 0.5), rgba(245, 241, 232, 0.28));
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.36), rgba(245, 241, 232, 0.2));
+}
+
+[data-theme="light"] .hero-accent-glow,
+[data-theme="light"] .hero-portrait-glow,
+[data-theme="light"] .hero-floating-orb {
+  display: none;
+}
+
+[data-theme="light"] .hero-text-content {
+  --foreground: #241014;
+  --foreground-muted: #56383e;
+  --foreground-subtle: #6b4a50;
 }
 
 [dir="rtl"] h1,
@@ -352,8 +361,9 @@ h6 {
 }
 
 [data-theme="light"] .theme-hero-title {
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: #701919;
+  background-image: none;
+  -webkit-text-fill-color: #701919;
 }
 
 /* ===== Glassmorphism ===== */
