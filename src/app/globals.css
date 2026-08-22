@@ -334,7 +334,9 @@ h6 {
 }
 
 .theme-hero-title {
-  background-image: linear-gradient(100deg, #ffffff 0%, #d65a5a 44%, #b32626 72%, #771111 100%);
+  color: #ffffff;
+  background-image: none;
+  -webkit-text-fill-color: #ffffff;
   filter: drop-shadow(0 8px 26px rgba(0, 0, 0, 0.28));
 }
 
@@ -347,6 +349,11 @@ h6 {
 [data-theme="light"] .theme-stat-number {
   background-image: linear-gradient(90deg, #2b0b16 0%, #771111 55%, #b32626 100%);
   filter: none;
+}
+
+[data-theme="light"] .theme-hero-title {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ===== Glassmorphism ===== */
