@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { AppProvider } from "@/context/AppContext";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
@@ -50,6 +51,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2259594031936212"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <AppProvider>
           <div className="bg-noise" />
           {children}
