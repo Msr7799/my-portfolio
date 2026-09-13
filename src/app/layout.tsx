@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     images: ["/assets/My-pics/1.png"],
   },
   verification: {
-    google: "ycNyhEdJMXnREHv1Ez1RlLYDNN-sC5AlVPe9oyfh4l4",
+    google: "tedQd55zrvYnRtg8uOcxm7sTuI3AZhKVSyQU-2Gq9pg",
   },
   robots: { index: true, follow: true },
 };
