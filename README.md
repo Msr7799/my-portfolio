@@ -1,4 +1,4 @@
-# Portfolio Website - Mohamed Alromaihi
+# Portfolio Website - Mohamed Saud Alromaihi
 
 <div align="center">
   <img src="./public/assets/portfolio.png" alt="Portfolio Preview" width="100%"/>
