@@ -18,6 +18,7 @@ interface Project {
     category: string;
     liveUrl?: string;
     githubUrl?: string;
+    playStoreUrl?: string;
     featured?: boolean;
 }
 
@@ -33,6 +34,99 @@ export default function ProjectsSection() {
     const [resolvedFullImage, setResolvedFullImage] = useState<string | null>(null);
 
     const projects: Project[] = [
+        {
+            id: 18,
+            title: "ScannerPlusX Website",
+            titleAr: "موقع ScannerPlusX",
+            description: "A multilingual website for the ScannerPlusX Android app, showcasing its scanning, OCR, PDF, and document tools.",
+            descriptionAr: "موقع متعدد اللغات لتطبيق ScannerPlusX على أندرويد، يعرض أدوات المسح الضوئي واستخراج النصوص وملفات PDF وتنظيم المستندات.",
+            image: "/assets/PROJECTS/scanner-plusx-promo.jpg",
+            fullImage: "/assets/PROJECTS/scanner-plusx-website-screenshot.png",
+            tags: ["Next.js", "TypeScript", "Tailwind CSS", "Android"],
+            category: "Web Apps",
+            liveUrl: "https://scanner-plusx.vercel.app",
+            githubUrl: "https://github.com/Msr7799/Scanner-PlusX-Website",
+            featured: true
+        },
+        {
+            id: 19,
+            title: "Brick Breaker Ball Website",
+            titleAr: "موقع لعبة Brick Breaker Ball",
+            description: "A bilingual home for Brick Breaker Ball with world galleries, game rules, a Volley preview, and a stage editor.",
+            descriptionAr: "موقع ثنائي اللغة للعبة Brick Breaker Ball يضم معارض العوالم والقواعد ومعاينة لنمط Volley ومحررًا للمراحل.",
+            image: "/assets/PROJECTS/brick-breaker-web.png",
+            fullImage: "/assets/PROJECTS/brick-breaker-web.png",
+            tags: ["Next.js", "TypeScript", "Game", "Stage Editor"],
+            category: "Web Apps",
+            liveUrl: "https://bricks-breaker-ball.vercel.app",
+            githubUrl: "https://github.com/Msr7799/BrickBreakerBall-Web",
+            featured: true
+        },
+        {
+            id: 20,
+            title: "Brick Breaker Ball Backend",
+            titleAr: "خادم لعبة Brick Breaker Ball",
+            description: "A secure game backend for Google Play purchase events, billing verification, admin tools, and Google service integrations.",
+            descriptionAr: "خادم آمن للعبة يدير أحداث مشتريات Google Play والتحقق من الفوترة وأدوات الإدارة والتكامل مع خدمات Google.",
+            image: "/assets/PROJECTS/brick-breaker-backend.svg",
+            fullImage: "/assets/PROJECTS/brick-breaker-backend.svg",
+            tags: ["Next.js", "Google Play Billing", "Firebase", "MongoDB"],
+            category: "API",
+            githubUrl: "https://github.com/Msr7799/brickbreakerball-backend",
+            featured: false
+        },
+        {
+            id: 21,
+            title: "Cinema Player",
+            titleAr: "مشغل الأفلام سينما",
+            description: "A responsive movie player with local files, subtitles, quality controls, and a searchable media library.",
+            descriptionAr: "مشغل أفلام متجاوب يدعم الملفات المحلية والترجمة وخيارات الجودة والبحث في مكتبة الوسائط.",
+            image: "/assets/PROJECTS/movies-player.png",
+            fullImage: "/assets/PROJECTS/movies-player.png",
+            tags: ["Next.js", "TypeScript", "Tailwind CSS", "Video"],
+            category: "Web Apps",
+            githubUrl: "https://github.com/Msr7799/Movies_Player",
+            featured: true
+        },
+        {
+            id: 22,
+            title: "Any Movie Android",
+            titleAr: "تطبيق Any Movie لأندرويد",
+            description: "An Android movie app with a shared catalog, a personal library, and server-powered movie discovery.",
+            descriptionAr: "تطبيق أفلام لأندرويد يجمع بين كتالوج عام ومكتبة شخصية واكتشاف الأفلام عبر الخادم.",
+            image: "/assets/PROJECTS/any-movie-android.svg",
+            fullImage: "/assets/PROJECTS/any-movie-android.svg",
+            tags: ["Kotlin", "Android", "Firebase", "MongoDB"],
+            category: "Mobile",
+            githubUrl: "https://github.com/Msr7799/any-movie-app",
+            featured: false
+        },
+        {
+            id: 23,
+            title: "Movies Search Server",
+            titleAr: "خادم البحث عن الأفلام",
+            description: "A movie discovery API using Gemini and Tavily to search, inspect streams, and return verified results.",
+            descriptionAr: "واجهة بحث عن الأفلام تستخدم Gemini وTavily لفحص مصادر البث وإرجاع النتائج المتحقق منها.",
+            image: "/assets/PROJECTS/movies-search-server.svg",
+            fullImage: "/assets/PROJECTS/movies-search-server.svg",
+            tags: ["TypeScript", "Gemini", "Tavily", "Vercel"],
+            category: "API",
+            githubUrl: "https://github.com/Msr7799/movies-search-server",
+            featured: false
+        },
+        {
+            id: 24,
+            title: "HLS MongoDB Backend",
+            titleAr: "خادم HLS وMongoDB",
+            description: "A Vercel API that stores HLS collector state in MongoDB and provides a protected sync endpoint.",
+            descriptionAr: "واجهة API على Vercel تحفظ بيانات جامع HLS في MongoDB وتوفر نقطة مزامنة محمية.",
+            image: "/assets/PROJECTS/hls-mongo-backend.svg",
+            fullImage: "/assets/PROJECTS/hls-mongo-backend.svg",
+            tags: ["JavaScript", "MongoDB", "HLS", "Vercel"],
+            category: "API",
+            githubUrl: "https://github.com/Msr7799/hls-vercel-mongo-backend",
+            featured: false
+        },
         {
             id: 2,
             title: "Quran Website",
@@ -186,12 +280,14 @@ export default function ProjectsSection() {
             id: 15,
             title: "Brick Breaker Ball",
             titleAr: "لعبة تحطيم الطوب",
-            description: "A native Android brick-breaker game built with Kotlin and LibGDX, featuring sprite-based gameplay, paddle controls, and progressive levels.",
-            descriptionAr: "لعبة أندرويد أصلية لتحطيم الطوب مبنية باستخدام Kotlin وLibGDX، وتتميز برسومات متحركة وتحكم سلس ومستويات متدرجة.",
-            image: "/assets/PROJECTS/BrickBreakerBall.png",
-            tags: ["Kotlin", "LibGDX", "Android", "Game"],
+            description: "A Kotlin and LibGDX brick-breaker with Classic and Volley modes, fantasy worlds, power-ups, and collectible balls. Available on Google Play.",
+            descriptionAr: "لعبة تحطيم طوب مبنية باستخدام Kotlin وLibGDX، تضم نمطي Classic وVolley وعوالم خيالية وقدرات وكرات قابلة للجمع. متاحة على Google Play.",
+            image: "/assets/PROJECTS/brick-breaker-ball-promo.png",
+            fullImage: "/assets/PROJECTS/brick-breaker-ball-promo-alt.png",
+            tags: ["Kotlin", "LibGDX", "Android", "Google Play"],
             category: "Mobile",
             githubUrl: "https://github.com/Msr7799/Brick_Breaker_GAME",
+            playStoreUrl: "https://play.google.com/store/apps/details?id=com.forgepulse.brickbreakerball",
             featured: true
         },
         {
@@ -344,6 +440,11 @@ export default function ProjectsSection() {
                 <h3 className={`text-lg font-bold text-[var(--foreground)] mb-2 ${isRTL ? "text-right" : "text-left"}`}>
                     {isRTL ? project.titleAr : project.title}
                 </h3>
+                {project.playStoreUrl && (
+                    <p className={`mb-2 text-xs font-semibold text-[#f6a6a6] ${isRTL ? "text-right" : "text-left"}`}>
+                        {isRTL ? "متاحة الآن على Google Play" : "Now on Google Play"}
+                    </p>
+                )}
                 <p className={`text-[var(--foreground-muted)] text-xs sm:text-sm mb-4 line-clamp-2 flex-grow ${isRTL ? "text-right" : "text-left"}`}>
                     {isRTL ? project.descriptionAr : project.description}
                 </p>
@@ -355,6 +456,17 @@ export default function ProjectsSection() {
 
                 {/* Project Links */}
                 <div className="flex gap-2">
+                    {project.playStoreUrl && (
+                        <a
+                            href={project.playStoreUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#771111] via-[#922020] to-[#B93232] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-[#771111]/20 transition-shadow hover:shadow-[#B93232]/35"
+                        >
+                            <Image src="/assets/tech/google-play.svg" alt="" width={18} height={18} />
+                            Google Play
+                        </a>
+                    )}
                     {project.liveUrl && (
                         <a
                             href={project.liveUrl}
@@ -549,6 +661,17 @@ export default function ProjectsSection() {
                                     {isRTL ? selectedProject.titleAr : selectedProject.title}
                                 </h3>
                                 <div className={`flex flex-wrap gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
+                                    {selectedProject.playStoreUrl && (
+                                        <a
+                                            href={selectedProject.playStoreUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#771111] via-[#922020] to-[#B93232] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#771111]/25"
+                                        >
+                                            <Image src="/assets/tech/google-play.svg" alt="" width={18} height={18} />
+                                            Google Play
+                                        </a>
+                                    )}
                                     {selectedProject.liveUrl && (
                                         <a
                                             href={selectedProject.liveUrl}

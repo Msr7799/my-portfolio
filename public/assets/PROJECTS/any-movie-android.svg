@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title">
+  <title id="title">Any Movie Android app illustration</title>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#070b1c"/><stop offset="1" stop-color="#22204a"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#6da7ff"/><stop offset="1" stop-color="#b471f8"/></linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <circle cx="955" cy="290" r="250" fill="#5861c9" opacity=".12"/>
+  <rect x="800" y="85" width="245" height="430" rx="40" fill="#12182b" stroke="#7c91ec" stroke-width="6"/>
+  <rect x="820" y="115" width="205" height="350" rx="14" fill="#282447"/>
+  <rect x="845" y="150" width="155" height="190" rx="18" fill="url(#accent)" opacity=".8"/>
+  <circle cx="922" cy="245" r="48" fill="#111328" opacity=".84"/>
+  <path d="M908 218l46 27-46 27z" fill="#fff"/>
+  <rect x="845" y="370" width="145" height="12" rx="6" fill="#aab4dc"/><rect x="845" y="395" width="100" height="9" rx="4" fill="#67749b"/>
+  <text x="80" y="225" fill="#a7b8ff" font-family="Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="7">ANDROID CINEMA</text>
+  <text x="80" y="315" fill="#fff" font-family="Arial,sans-serif" font-size="72" font-weight="800">ANY MOVIE</text>
+  <text x="80" y="375" fill="#c3c5e0" font-family="Arial,sans-serif" font-size="26">Catalog · Library · Playback</text>
+</svg>

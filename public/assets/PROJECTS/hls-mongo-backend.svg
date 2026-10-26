@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title">
+  <title id="title">HLS MongoDB backend illustration</title>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0a1320"/><stop offset="1" stop-color="#152c2f"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#77e0a6"/><stop offset="1" stop-color="#54b8de"/></linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <circle cx="940" cy="300" r="265" fill="#52c79e" opacity=".08"/>
+  <ellipse cx="885" cy="195" rx="145" ry="54" fill="#183b41" stroke="#72d7bc" stroke-width="5"/>
+  <path d="M740 195v210c0 30 65 55 145 55s145-25 145-55V195" fill="#153238" stroke="#72d7bc" stroke-width="5"/>
+  <path d="M740 300c0 30 65 55 145 55s145-25 145-55" fill="none" stroke="#72d7bc" stroke-width="5"/>
+  <path d="M810 252l60 47-60 47M905 345h70" fill="none" stroke="url(#accent)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="80" y="215" fill="#8be6b4" font-family="Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="7">STREAM DATA API</text>
+  <text x="80" y="308" fill="#f1fff9" font-family="Arial,sans-serif" font-size="64" font-weight="800">HLS + MONGO</text>
+  <text x="80" y="370" fill="#b8d8d2" font-family="Arial,sans-serif" font-size="26">Secure sync · Cloud storage</text>
+</svg>

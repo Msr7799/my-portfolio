@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title">
+  <title id="title">Movies search server illustration</title>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071322"/><stop offset="1" stop-color="#092e36"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#79e9e0"/><stop offset="1" stop-color="#4e8ffa"/></linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <circle cx="955" cy="270" r="270" fill="#20b3b4" opacity=".07"/>
+  <rect x="680" y="214" width="400" height="170" rx="35" fill="#0b2534" stroke="#54c9d8" stroke-width="5"/>
+  <circle cx="798" cy="298" r="51" fill="none" stroke="url(#accent)" stroke-width="20"/>
+  <path d="M835 336l55 55" stroke="url(#accent)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M945 276h85M945 309h58M945 342h78" stroke="#78b6c8" stroke-width="9" stroke-linecap="round"/>
+  <text x="80" y="215" fill="#79e9e0" font-family="Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="7">DISCOVERY API</text>
+  <text x="80" y="308" fill="#f3ffff" font-family="Arial,sans-serif" font-size="65" font-weight="800">MOVIE SEARCH</text>
+  <text x="80" y="370" fill="#b5d1d9" font-family="Arial,sans-serif" font-size="26">Gemini · Tavily · Verified Results</text>
+</svg>
