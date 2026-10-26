@@ -7,6 +7,7 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
+import AdSenseUnit from "@/components/AdSenseUnit";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 
@@ -35,6 +36,7 @@ export default function Home() {
           <AboutSection />
           <SkillsSection />
           <ProjectsSection />
+          <AdSenseUnit />
           <ContactSection />
         </main>
         <Footer />
