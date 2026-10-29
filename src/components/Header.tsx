@@ -7,6 +7,7 @@ import { useApp } from "@/context/AppContext";
 import { FileText } from "lucide-react";
 import Image from "next/image";
 import WeatherWidget from "./WeatherWidget";
+import { DesktopSiteLinksMenu, MobileSiteLinksMenu } from "./SiteLinksMenu";
 
 export default function Header() {
   const { theme, toggleTheme, language, toggleLanguage, t, isRTL } = useApp();
@@ -60,7 +61,7 @@ export default function Header() {
         </motion.div>
 
         {/* Desktop Navigation */}
-        <div className={`hidden lg:flex items-center gap-1 ${isRTL ? "flex-row-reverse" : ""}`}>
+        <div className={`hidden xl:flex items-center gap-1 ${isRTL ? "flex-row-reverse" : ""}`}>
           {navItems.map((item, index) => (
             <motion.div
               key={item.name}
@@ -84,6 +85,7 @@ export default function Header() {
               </Link>
             </motion.div>
           ))}
+          <DesktopSiteLinksMenu isRTL={isRTL} />
         </div>
 
         {/* Actions */}
@@ -134,7 +136,11 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative w-10 h-10 p-0 flex flex-col items-center justify-center gap-1.5"
+            type="button"
+            aria-label={isRTL ? "فتح قائمة التنقل" : "Toggle navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
+            className="xl:hidden relative w-10 h-10 p-0 flex flex-col items-center justify-center gap-1.5"
           >
             <motion.span animate={{ rotate: isMobileMenuOpen ? 45 : 0, y: isMobileMenuOpen ? 6 : 0 }} className="w-6 h-0.5 bg-[var(--foreground)] rounded-full origin-center" />
             <motion.span animate={{ opacity: isMobileMenuOpen ? 0 : 1 }} className="w-6 h-0.5 bg-[var(--foreground)] rounded-full" />
@@ -147,10 +153,11 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[var(--background)]/98 backdrop-blur-xl border-t border-[var(--border-color)]"
+            className="xl:hidden max-h-[calc(100dvh-5rem)] overflow-y-auto bg-[var(--background)]/98 backdrop-blur-xl border-t border-[var(--border-color)]"
           >
             <div className="container mx-auto px-6 py-4 flex flex-col gap-2">
               {navItems.map((item, index) => (
@@ -165,6 +172,7 @@ export default function Header() {
                   </Link>
                 </motion.div>
               ))}
+              <MobileSiteLinksMenu isRTL={isRTL} onNavigate={() => setIsMobileMenuOpen(false)} />
               <motion.a
                 href="/assets/MOHAMED-SAUD-ALROMAIHI.pdf"
                 download
