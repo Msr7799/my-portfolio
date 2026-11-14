@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-msr-bh.vercel.app"),
+  other: {
+    "google-adsense-account": "ca-pub-2259594031936212",
+  },
   title: "Mohamed Alromaihi | Full-Stack Developer & Cybersecurity Expert",
   description: "Portfolio of Mohamed Saud Alromaihi - Full-Stack Developer, Cybersecurity Technician, and former Military Officer. Specializing in React, Next.js, TypeScript, Flutter, and secure web applications.",
   keywords: [
