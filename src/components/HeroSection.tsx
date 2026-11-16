@@ -196,12 +196,12 @@ export default function HeroSection() {
                             className={`flex flex-wrap gap-10 justify-center ${isRTL ? "lg:justify-end" : "lg:justify-start"}`}
                         >
                             {[
-                                { number: "5+", label: t("yearsExperience") },
-                                { number: "20+", label: t("projectsCompleted") },
-                                { number: "10+", label: t("technologies") },
+                                { number: "11+", label: t("yearsExperience") },
+                                { number: "22+", label: t("projectsCompleted") },
+                                { number: "36+", label: t("technologies") },
                             ].map((stat, index) => (
                                 <div key={index} className={`text-center ${isRTL ? "lg:text-right" : "lg:text-left"}`}>
-                                    <div className="text-3xl sm:text-4xl md:text-5xl font-bold theme-stat-number mb-1">{stat.number}</div>
+                                    <div className="text-3xl sm:text-4xl md:text-5xl font-bold theme-stat-number theme-stat-number--green mb-1">{stat.number}</div>
                                     <div className="text-sm text-[var(--foreground-subtle)]">{stat.label}</div>
                                 </div>
                             ))}

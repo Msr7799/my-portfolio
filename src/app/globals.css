@@ -807,3 +807,16 @@ body {
 section {
   contain: layout style;
 }
+
+/* Hero portfolio statistics: green numbers in both color themes. */
+.theme-stat-number--green {
+  color: #4ade80;
+  background-image: none;
+  -webkit-text-fill-color: #4ade80;
+}
+
+[data-theme="light"] .theme-stat-number--green {
+  color: #15803d;
+  background-image: none;
+  -webkit-text-fill-color: #15803d;
+}
